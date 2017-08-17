@@ -615,7 +615,7 @@ input:focus {
 	background-image:  url("img/background8.jpg"); 
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 30vw;
+	height: 35vw;
 	color: white;
 }
 #footer li, ul{
@@ -697,7 +697,8 @@ input:focus {
 .footer_input{
 	border: 1px solid white;
     width: 57%;
-    height: 13%;
+    height: auto;
+	padding: 0.3vw;
     background-color: transparent;
     padding-left: 10px;
     padding-right: 10px;
@@ -723,10 +724,34 @@ input [type="text"]:-ms-input-placeholder      {color:white;}
     border: none;
     cursor: pointer;
     width: 30%;
-    height: 15%;
+    height: auto;
+	padding: 0.3vw;
 }
-
-
+.footer_input_{
+	border: 1px solid white;
+    width: 90%;
+    height: auto;
+	padding: 0.3vw;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 1vw;
+    line-height: 1;
+    margin-right: 1vw;
+}
+.footer_button_{
+	background-color: white;
+    opacity: 0.9;
+    font-size: 1vw;
+    color: #8ad4e6;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    height: auto;
+	padding: 0.3vw;
+}
 /*FROM INTERNET*/
 .poster-list ul, li{
 	list-style-type: none;

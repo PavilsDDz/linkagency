@@ -319,18 +319,17 @@
 				<div class="navigation">
 					<ul>
 						<li class="logo"><img src="img/logo.png"></li>
-						<li><a>О Компании</a></li>
-						<li><a>Услуги</a></li>
-						<li><a>Вебмастерам</a></li>
-						<li><a>Партнеры</a></li>
-						<li><a>Контакты</a></li>
+						<li><a href="#about_us">О Компании</a></li>
+						<li><a href="#contact_us">Услуги</a></li>
+						<li><a href="#gallery">Вебмастерам</a></li>
+						<li><a href="#gallery2">Партнеры</a></li>
+						<li><a href="#footer">Контакты</a></li>
 					</ul>
 				</div>
 
 				<div class="header">
-					<h2>Компания ООО</h2>
 					<h1>Link Agency</h1>
-					<h2 style="font-style: italic;">занимается предоставлением услуг <br> интернет-маркетинга</h2>
+					<h2 style="font-style: italic;">Международная рекламная сеть</h2>
 				</div>
 			</div>
 
@@ -802,11 +801,9 @@
 					
 					<div>
 						<h3>Contact Us:</h3>
-						<p>Adress: Leninsky Ave, 6,<br>
-							строен. 20, Moskva, Russia<br>
-							Email: info@linkagency.ru<br>
-							Call: +7 495 789 45 27
-						</p>
+						<p>Имя, фамилия:</p><input type="text" class="footer_input_">
+						<p>Электронная почта:</p><input type="text" class="footer_input_">
+						<p><input class="footer_button_" type="submit"></p>
 					</div>
 					
 					<div>
