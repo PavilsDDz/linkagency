@@ -359,13 +359,21 @@
 							<div class="container flex">
 									
 								<div class=" flex wrap">
-									<div class="gender fe"><p class="prec">52%</p><p>Женщины</p></div>	
-									<div class="gender ma"><p class="prec">48%</p><p> Мужчины</p></div>	
+									<div class="gender fe flex"><div class="icon"></div><div class="text"><p class="prec">52%</p><p>Женщины</p></div></div>	
+									<div class="gender ma flex"><div class="icon"></div><div class="text"><p class="prec">48%</p><p>Мужчины</p></div></div>	
 									<div class="numbers" male="7" female="9"><p>0</p><p>0<p></div>
 									<div class="numbers" male="17" female="18"><p>0</p><p>0<p></div>
 									<div class="numbers" male="13" female="13"><p>0</p><p>0<p></div>
 									<div class="numbers" male="7" female="7"><p>0</p><p>0<p></div>
 									<div class="numbers" male="4" female="4"><p>0</p><p>0<p></div>
+									<div class="text_under flex">
+										<p class="abs">возраст</p>
+										<p>< 18</p>
+										<p>18-24</p>
+										<p>25-34</p>
+										<p>35-44</p>
+										<p>45+</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -405,9 +413,60 @@
 								</ul>
 							</div>
 						</div>
-				<div class="diagram" style="left: 200%"></div>
+				<div id="thirdD" class="diagram" style="left: 200%">
+					<div class="container flex">
+						<div class="wrap">
+							<div class="top flex">
+								<div class="left">
+									<p>Просмотров страниц</p>
+									<p>Посетителей</p>
+								</div>
+								<div class="right">
+									<p>1 019 286 012  (+8% мес/мес)</p>
+									<p>81 201 874   (+7% мес/мес)</p>
+								</div>
+								<div class="right"></div>
+							</div>
+							<div class="middle flex">
+								<div class="left">
+									<p>Преобладающий регион - Москва</p>
+									<p>Преобладающая страна - Россия</p>
+								</div>
+								<div class="right">
+									<p val="545">54,5%</p>
+									<p val="119">11,9%</p>
+								</div>
+							</div>
+							<div class="bottom flex">
+								<div class="left">
+									<p>Переходов с поисковиков</p>
+									<p>Пользователей, пришедших с поисковиков</p>
+								</div>
+								<div class="right">
+									<p>235 894 090 (+8% мес/мес)</p>
+									<p>60 314 716 (+7% мес/мес)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				</div>
 				<canvas id="diagram_bg" width="300vw" height="100%"></canvas>
+				<div class="nav flex">
+					<div class="current"></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="aud">
+					<div class="top">
+						<p>Аудитория</p>
+					</div>
+					<div class="title">
+						<h2>Аудитория</h2>
+						<div class="num"><span>1.</span></div>
+						<p class="info">Мужчины, Женщины</p>
+					</div>
+				</div>
 			</div>
 			<script type="">
 
@@ -424,7 +483,7 @@
 				//bgctx.fillStyle = "#ffffff"
 				for (var i = 0; i < dotCount; i++) {
 					bgctx.beginPath();
-			      	bgctx.fillStyle = '#ffffff';
+			      	bgctx.fillStyle = 'rgba(255,255,255,0.8)';
 			      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
 			      	bgctx.fill();
 				}

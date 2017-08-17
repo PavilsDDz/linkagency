@@ -32,6 +32,7 @@ input:focus {
     top: 18vw;
     left: 5vw;
 	color: white;
+	
 }
 .a{
 	width: 10vw;
@@ -74,6 +75,7 @@ input:focus {
     left: 5vw;
 	color: #51b3cb;
 	display: none;
+	z-index: 10;
 }
 .a_blue{
 	width: 10vw;
@@ -116,6 +118,7 @@ input:focus {
     left: 5vw;
 	color: white;
 	display:none;
+	z-index: 10;
 }
 /**/
 #float_block_blue2{
@@ -268,6 +271,7 @@ input:focus {
 	position: relative;
 	z-index: 1;
 	left: 0;
+	top: 0;
 }
 #graphical_diagram .container{
 	position: relative;
@@ -278,8 +282,73 @@ input:focus {
 	position: absolute;
 	top: 0;
 	left: 0;
-
 }
+#graphical_diagram .nav {
+	position: absolute;
+	bottom: 3%;
+	width: 100%;
+	justify-content: center;
+	-webkit-justify-content: center;
+}
+#graphical_diagram .nav div {
+	width: 8px;
+	height: 8px;
+	margin: 7px;
+	background-color: #fbcdf0;
+	border-radius: 50%;
+	cursor: pointer;
+}
+#graphical_diagram .nav .current {
+	background-color: #ffffff;
+}
+#graphical_diagram .aud {
+	position: absolute;
+	right: 20%;
+	top: 23%;
+	color: #ffffff;
+}
+
+#graphical_diagram .aud .top {
+	text-transform: uppercase;
+	font-size: 0.7em;
+	line-height: 0.7em;
+	border-bottom: solid 1px #ffffff;
+}
+#graphical_diagram .aud .top p{
+	margin-bottom: 4px;
+}
+#graphical_diagram .aud .title {
+	position: relative;
+}
+#graphical_diagram .aud .title h2{
+	margin-bottom: 0;
+	height: 25px;
+	line-height: 25px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+#graphical_diagram .aud .num {
+	position: absolute;
+	top: 2px;
+	right: 105%;
+	height: 18px;
+	width: 18px;
+	font-size: 0.9em;
+	line-height: 20px;
+	text-align: center;
+	border:solid 1px #ffffff;
+	border-radius: 50%;
+}
+#graphical_diagram .aud .info{
+	font-size: 0.9em;
+	font-weight: 300;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	top: 107%;
+	white-space: nowrap;
+}
+
 #firstD {
 
 }
@@ -296,13 +365,14 @@ input:focus {
 	background-size: 100% 100%;
 	justify-content: flex-start;
 	overflow: visible !important;
+	top: 138px;
 }
 #firstD .container .wrap .numbers {
 	width: 18.1%;
 	text-align: right;
 	height: 100%;
 	position: relative;
-	top: -37px;
+	top: -45px;
 }
 #firstD .container .wrap .numbers p {
 	margin: 0;
@@ -315,23 +385,101 @@ input:focus {
 	color: #92caff
 }
 
-#firstD .container .wrap .numbers:nth-child(1) p{
+#firstD .container .wrap .numbers:nth-child(3) p{
 	top: 49%;
 }
-#firstD .container .wrap .numbers:nth-child(2) p{
+#firstD .container .wrap .numbers:nth-child(4) p{
 	top: 0%;
 }
-#firstD .container .wrap .numbers:nth-child(3) p{
+#firstD .container .wrap .numbers:nth-child(5) p{
 	top: 24%;
 }
-#firstD .container .wrap .numbers:nth-child(4) p{
+#firstD .container .wrap .numbers:nth-child(6) p{
 	top: 66%;
 }
-#firstD .container .wrap .numbers:nth-child(5) p{
+#firstD .container .wrap .numbers:nth-child(7) p{
 	top: 88%;
 }
 #firstD .gender {
 	position: absolute;
+	background-color: rgba(255,255,255,0.1);
+	background-image: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0));
+
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0.2), rgba(255,255,255,0)); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(right, rgba(255,255,255,0.2), rgba(255,255,255,0)); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(right, rgba(255,255,255,0.2), rgba(255,255,255,0)); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+	width: 0;
+	padding: 7px 0 7px 0;
+	opacity: 0;
+}
+#firstD .text{
+	position: absolute;
+	padding: 0;
+}
+#firstD .text_under{
+	position: absolute;
+	width: 100%;
+	top: 100%;
+}
+#firstD .text_under p{
+	width: 18.1%;
+	text-align: right;
+	color: #9ee7ff;
+}
+#firstD .text_under .abs {
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: left;
+}
+.fe .text {
+	top: 15px;
+	left: 60px;
+}
+.ma .text {
+	top: 15px;
+	left: 60px;
+}
+#firstD .gender .icon {
+	width: 50px;
+	height: 50px;
+	margin-left: 5px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.fe .icon {
+	background-image: url(img/fe-icon.png)
+}
+.ma .icon{
+	background-image: url(img/ma-icon.png)
+}
+#firstD .wrap p {
+	font-size: 1em;
+}
+.fe {
+	top: 0;
+	left: 19%;
+}
+.ma{
+	top: 50%;
+	left: 2%;
+}
+.fe p{
+	color:#eda6ff !important;
+}
+.ma p{
+	color: #92caff !important;
+}
+
+#firstD .prec {
+	font-size: 2.2em !important;
+	margin: 0;
+	line-height: 0.7em
+}
+#firstD  .gender p {
+	margin: 0;
 }
 #secondD {
 		display: flex;
@@ -345,6 +493,8 @@ input:focus {
 
 }
 #secondD .container ul{
+	position: relative;
+	top: 180px;
 		height: 100%;
 }
 #secondD .container li{
@@ -366,6 +516,81 @@ input:focus {
 	color: #fff;
 }
 
+#thirdD {
+
+}
+
+#thirdD .wrap{
+	position: relative;
+	width: 100%;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	align-items: center;
+	top: 60%;
+
+	 
+}
+#thirdD .wrap p {
+	font-size: 0.9em;
+	height: 20px;
+	line-height: 20px;
+}
+#thirdD .left {
+	text-align: right;
+	width: 45%;
+	margin-right: 20px;
+}
+#thirdD .top p, #thirdD .bottom p {
+	color:#72c8dd;
+}
+#thirdD .top .right p, #thirdD .bottom .right p {
+	padding: 0 0 0 40px;
+	background-position: 0 center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#thirdD .top .right p:nth-child(1){
+	background-image: url(img/eye.png);
+}
+#thirdD .top .right p:nth-child(2){
+	background-image: url(img/peapole.png);
+}
+
+#thirdD .bottom .right p:nth-child(1){
+	background-image: url(img/view.png);
+}
+#thirdD .bottom .right p:nth-child(2){
+	background-image: url(img/pluss.png);
+}
+#thirdD .middle {
+	margin: 20px 0;
+}
+#thirdD .middle .left p {
+	margin: 0;
+
+	color: #049cdc
+}
+#thirdD .middle .right p:nth-child(1){
+	background-color: #026eb6;
+	width: 0vw;
+	padding: 0 0 0 10px;
+	margin: 0;
+
+	color: #ffffff;
+}
+#thirdD .middle .right p:nth-child(2){
+	background-color: #0486be;
+	margin: 0;
+	width: 0vw;
+	padding: 0 0 0 10px;
+	color: #ffffff;
+}
+
+
+#thirdD .middle p {
+	height: 40px;
+	line-height: 40px;
+}
 
 /**/
 #diagram{
