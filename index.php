@@ -121,6 +121,7 @@
 
 		<script src="js/jquery-3.2.1.js"></script>
 		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src = "js/animations.js"></script>
 
 		<!--for first gallery-->
 		<script>
@@ -351,8 +352,84 @@
 
 			<div id="graphical_diagram">
 
-				<img src="img/graphic.png" width="80%" style="margin-top: 10vw;">
+				<!--<img src="img/graphic.png" width="80%" style="margin-top: 10vw;">-->
+				<div class="wrap">
+						<div id="firstD" class="diagram" style="left: 0">
+							<div class="container flex">
+									
+								<div class=" flex wrap">
+									<div class="gender fe"><p class="prec">52%</p><p>Женщины</p></div>	
+									<div class="gender ma"><p class="prec">48%</p><p> Мужчины</p></div>	
+									<div class="numbers" male="7" female="9"><p>0</p><p>0<p></div>
+									<div class="numbers" male="17" female="18"><p>0</p><p>0<p></div>
+									<div class="numbers" male="13" female="13"><p>0</p><p>0<p></div>
+									<div class="numbers" male="7" female="7"><p>0</p><p>0<p></div>
+									<div class="numbers" male="4" female="4"><p>0</p><p>0<p></div>
+								</div>
+							</div>
+						</div>
+						<div id="secondD" class="diagram" style="left: 100%">
+							<div class="container">
+								<ul class="flex">
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #00bff3" val="68.5">	</div>
+										<p class="name">Внутренние<p>
+									</li>
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #00afde" val='23.1'>	</div>
+										<p class="name">Поиск<p>
+									</li>
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #02a1cb" val='7.8'>	</div>
+										<p class="name">Закладки<p>
+									</li>
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #02a1cb" val='0.5'>	</div>
+										<p class="name">Сайты<p>
+									</li>
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #02a1cb" val='0.1'>	</div>
+										<p class="name">Соц. сети<p>
+									</li>
+									<li class="flex">
+										<h3 class="value"></h3>
+										<div class="column" style="background-color: #02a1cb" val='0'>	</div>
+										<p class="name">Объявления<p>
+									</li>
+								</ul>
+							</div>
+						</div>
+				<div class="diagram" style="left: 200%"></div>
+				</div>
+				<canvas id="diagram_bg" width="300vw" height="100%"></canvas>
 			</div>
+			<script type="">
+
+				var dotCount = 350;
+				var dotSizeMax = 13;
+				var dotSizeMin = 1;
+
+				var bg = document.getElementById('diagram_bg')
+
+				bg.width = $('#graphical_diagram').width()*3;
+            	bg.height = $('#graphical_diagram').height();
+
+				bgctx = bg.getContext('2d')
+				//bgctx.fillStyle = "#ffffff"
+				for (var i = 0; i < dotCount; i++) {
+					bgctx.beginPath();
+			      	bgctx.fillStyle = '#ffffff';
+			      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
+			      	bgctx.fill();
+				}
+
+
+			</script>
 
 			<div id="diagram">
 

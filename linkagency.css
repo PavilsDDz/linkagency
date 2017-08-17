@@ -247,11 +247,126 @@ input:focus {
 }
 /**/
 #graphical_diagram{
-	background-image:  url("img/background3.jpg"); 
+	/*background-image:  url("img/background3.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 43vw;
+	
+	background-image: radial-gradient(16px at 8% 50% ,#022e74 0%, #0d8dd2 60vw, #13baff 90vw); 
+	width: 100%;
+	position: relative;
 }
+#graphical_diagram .diagram {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+#graphical_diagram .wrap {
+	position: relative;
+	z-index: 1;
+	left: 0;
+}
+#graphical_diagram .container{
+	position: relative;
+	margin:auto;
+	height: 50vh;
+}
+#diagram_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+}
+#firstD {
+
+}
+#firstD .container{
+	position: relative;
+	margin: auto;
+}
+#firstD .container .wrap {
+	height: 0%;
+	width: 60%;
+	background-image: url(img/graphic.png);
+	position: relative;
+	margin: auto auto 0 auto;
+	background-size: 100% 100%;
+	justify-content: flex-start;
+	overflow: visible !important;
+}
+#firstD .container .wrap .numbers {
+	width: 18.1%;
+	text-align: right;
+	height: 100%;
+	position: relative;
+	top: -37px;
+}
+#firstD .container .wrap .numbers p {
+	margin: 0;
+	position: relative;
+}
+#firstD .container .wrap .numbers p:nth-child(1){
+	color:#eda6ff;
+}
+#firstD .container .wrap .numbers p:nth-child(2){
+	color: #92caff
+}
+
+#firstD .container .wrap .numbers:nth-child(1) p{
+	top: 49%;
+}
+#firstD .container .wrap .numbers:nth-child(2) p{
+	top: 0%;
+}
+#firstD .container .wrap .numbers:nth-child(3) p{
+	top: 24%;
+}
+#firstD .container .wrap .numbers:nth-child(4) p{
+	top: 66%;
+}
+#firstD .container .wrap .numbers:nth-child(5) p{
+	top: 88%;
+}
+#firstD .gender {
+	position: absolute;
+}
+#secondD {
+		display: flex;
+}
+
+#secondD .container {
+	
+	
+	text-align: center;
+
+
+}
+#secondD .container ul{
+		height: 100%;
+}
+#secondD .container li{
+	margin: 0 1.5vw;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+#secondD .container li p {
+	color: #83e4ff;
+	margin: 10px 0 0 0;
+
+}
+#secondD .column {
+	height: 0;
+	width: 5vw;
+}
+#secondD .value {
+	margin: 5px;
+	color: #fff;
+}
+
+
 /**/
 #diagram{
 	background-image:  url("img/background4.jpg"); 
