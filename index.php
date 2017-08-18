@@ -121,8 +121,9 @@
 		<link rel="stylesheet" type="text/css" href="linkagency.css">
     	<title>link agency</title>
 
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
 		<script src="js/jquery-3.2.1.js"></script>
-		<script src="js/jquery-3.2.1.min.js"></script>
+		<!-- <script src="js/jquery-3.2.1.min.js"></script> -->
 		<script src = "js/animations.js"></script>
 
 		<!--for first gallery-->
@@ -492,8 +493,68 @@
 			</script>
 
 			<div id="diagram">
+					<div class="container">
+							<div class="wrap L">
+								<div class="contry" style="background-color: #00ffae" val='57'><p>Россия - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #01bf83" val='21'><p>Украина - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #039e6d" val='7'><p>Другие - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #007a7e" val='6'><p>Казахстан - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #006b7e" val='5'><p>Беларусь - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #005f7e" val='2'><p>Молдавия - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #165c80" val='1'><p>Армения - <span class="val">0%</span></p></div>
+								<div class="contry" style="background-color: #1b6388" val='1'><p>Германия - <span class="val">0%</span></p></div>
+							</div>
+							<div class="wrap S">
+								<p class="info">Регионы России:</p>
+								<div class="region" style="background-color: #54c1fa" val='221'><p>Остальные регионы России - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #00ff5a" val='119'><p>1. Москва - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #29ff75" val='42'><p>2. Санкт-Петербург - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #46ff88" val='25'><p>3. Краснодар - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #46ffc4" val='21'><p>4. Екатеринбург - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #57ffc9" val='20'><p>5. Новосибирск - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #57fff5" val='15'><p>6. Самара - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #6dfff6" val='14'><p>7. Ростов-на-Дону - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #86eaff" val='13'><p>9. Челябинск - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #86eaff" val='13'><p>10. Казань - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #86eaff" val='11'><p>11. Уфа - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #86eaff" val='10'><p>12. Иркутск - <span class="val">0%</span></p></div>
+								<div class="region" style="background-color: #86eaff" val='10'><p>13. Владивосток - <span class="val">0%</span></p></div>
+							</div>
+					</div>
+				<div class="aud">
+					<div class="top">
+						<p>Аудитория</p>
+					</div>
+					<div class="title">
+						<h2>Аудитория</h2>
+						<div class="num"><span>4.</span></div>
+						<p class="info">Распределение территории по странам</p>
+					</div>
+				</div>
+				<canvas id="diagram_bg2">	</canvas>
+				<script type="">
 
-				<img src="img/graphic_2.png" width="80%" style="margin-top: 4vw;">
+				var dotCount = 100;
+				var dotSizeMax = 13;
+				var dotSizeMin = 1;
+
+				var bg = document.getElementById('diagram_bg2')
+
+				bg.width = $('#diagram').width();
+            	bg.height = $('#diagram').height();
+
+				bgctx = bg.getContext('2d')
+				//bgctx.fillStyle = "#ffffff"
+				for (var i = 0; i < dotCount; i++) {
+					bgctx.beginPath();
+			      	bgctx.fillStyle = 'rgba(255,255,255,0.8)';
+			      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
+			      	bgctx.fill();
+				}
+
+
+			</script>
+				
 			</div>
 
 			<div id="contact_us">
@@ -623,7 +684,7 @@
 							контент сайта.</p>
 
 							<div class="separate"></div>
-							<h2>CPM: 20 – 50 рублей<br>
+							<h2>CPM: 20 - 50 рублей<br>
 								CTR 0,4%<br>
 								Более 500 млн. показов в месяц<br>
 								«Резиновый» формат в мобильной<br> версии

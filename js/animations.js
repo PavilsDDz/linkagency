@@ -88,6 +88,49 @@ $(function(){
 		})
 
 	}
+	animations[3] = function(){
+		valC = []
+		valR = []
+		wrapLw = $('#diagram .L').width() 
+		for (var i = 0; i < $('#diagram .contry').length; i++) {
+			val = parseInt($('#diagram .contry:eq('+i+')').attr('val'))
+			//console.log($('#diagram .contry:eq('+i+')'))
+			valC.push(val)
+			$('#diagram .contry:eq('+i+')').animate({'width':(valC[i]+2)+'%'},{duration: timer,
+				step: function(now, fx){
+					thisval = parseInt($(this).attr('val'))
+					$(this).children('p').children('.val').html(Math.round(now-(2*(now/(thisval+2))))+'%')
+					//console.log(now,(2*(now/(thisval+2))),$(this).children('p').children('.val'))
+				},
+				complete: function(){
+
+				}
+			})
+
+		}
+		console.log($('#diagram .region'))
+		function animate_second(){
+			for (var i = 0; i < $('#diagram .region').length; i++) {
+				val = parseInt($('#diagram .region:eq('+i+')').attr('val'))
+				valR.push(val)
+
+				$('#diagram .region:eq('+i+')').animate({'width':(valR[i]/10+1)+'%'},{duration: timer,
+				step: function(now, fx){
+					thisval = parseInt($(this).attr('val'))/10
+					$(this).children('p').children('.val').html(((Math.round((now-(1*(now/(thisval+1))))*10)/10).toFixed(1)+'%'))
+					//console.log(now,(2*(now/(thisval+2))),$(this).children('p').children('.val'))
+				},
+				complete: function(){
+
+				}
+			})
+			}
+			console.log(valR)
+		}
+		setTimeout(function(){animate_second()},timer)
+		//console.log(valR)
+	}
+	//animations[3]()
 
 	//animations[0]()
 
@@ -114,8 +157,11 @@ $(function(){
 	})
 
 	var animated = false
+	var animated2 = false
 	var offset = $('#graphical_diagram').offset()
 	var gdh = $('#graphical_diagram').height()
+	var dh = $('#diagram').height()
+	var diagO = $('#diagram').offset()
 	$(document).scroll(function(){
 		sct = $(document).scrollTop()
 		//console.log(sct)
@@ -123,6 +169,11 @@ $(function(){
 		if(sct>offset.top-gdh*0.3&&!animated){
 			animated=true;
 			animations[0]()
+		}
+		if (sct>diagO.top-dh*0.3&&!animated2) {
+			animated2 = true
+			animations[3]()
+
 		}
 	}) 
 

@@ -294,40 +294,46 @@ input:focus {
 	width: 8px;
 	height: 8px;
 	margin: 7px;
-	background-color: #fbcdf0;
+	background-color: #8ad4e6;
 	border-radius: 50%;
 	cursor: pointer;
+	border: 1px solid rgba(4,63,133,0.2);
 }
 #graphical_diagram .nav .current {
 	background-color: #ffffff;
 }
-#graphical_diagram .aud {
+#diagram .aud,#graphical_diagram .aud {
 	position: absolute;
 	right: 20%;
 	top: 23%;
 	color: #ffffff;
 }
 
-#graphical_diagram .aud .top {
+#diagram .aud {
+	    right: 23% !important;
+    	top: 17% !important;
+}
+#diagram .aud .top, #graphical_diagram .aud .top {
 	text-transform: uppercase;
 	font-size: 0.7em;
 	line-height: 0.7em;
 	border-bottom: solid 1px #ffffff;
 }
-#graphical_diagram .aud .top p{
+
+#diagram .aud .top p, #graphical_diagram .aud .top p{
 	margin-bottom: 4px;
 }
-#graphical_diagram .aud .title {
+#diagram .aud .title,#graphical_diagram .aud .title {
 	position: relative;
 }
-#graphical_diagram .aud .title h2{
+#diagram .aud .title h2, #graphical_diagram .aud .title h2{
 	margin-bottom: 0;
 	height: 25px;
 	line-height: 25px;
 	margin-top: 10px;
 	margin-bottom: 5px;
 }
-#graphical_diagram .aud .num {
+#diagram .aud .num, #graphical_diagram .aud .num {
 	position: absolute;
 	top: 2px;
 	right: 105%;
@@ -339,7 +345,7 @@ input:focus {
 	border:solid 1px #ffffff;
 	border-radius: 50%;
 }
-#graphical_diagram .aud .info{
+#diagram .aud .info, #graphical_diagram .aud .info{
 	font-size: 0.9em;
 	font-weight: 300;
 	margin: 0;
@@ -594,11 +600,80 @@ input:focus {
 
 /**/
 #diagram{
-	background-image:  url("img/background4.jpg"); 
+	 
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 43vw;
+
+	background-image: radial-gradient(16px at 92% 50% ,#022e74 0%, #0d8dd2 60vw, #13baff 90vw); 
+	position: relative;
 }
+#diagram .container {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+}
+#diagram .wrap {
+	position: absolute;
+}
+#diagram .wrap p {
+	color: #ffffff;
+	margin: 5px 0;
+	font-weight: 300;
+}
+#diagram .L {
+	top: 20%;
+	left: 30%;
+	width: 50%;
+}
+
+#diagram .S {
+	top: 38.9%;
+	left: 60%;
+	width: 80%;
+}
+#diagram .contry, #diagram .region {
+	position: relative;
+}
+#diagram .contry p, #diagram .region p {
+	position: absolute;
+	right: 101%;
+	white-space: nowrap;
+	
+}
+#diagram .contry {
+	height: 45px;
+	width: 0;
+	line-height: 45px;
+	margin: 5px 0;
+	
+}
+
+ #diagram .region {
+ 	height: 16px;
+ 	
+ 	width: 0;
+	margin: 5px 0;
+
+}
+#diagram .region p {
+	line-height: 16px;
+ 	font-size: 0.8em;	
+ 	margin: 0;
+}
+.S .info {
+	    position: absolute;
+    top: -30px;
+    right: 101%;
+    white-space: nowrap;
+}
+#diagram_bg2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 /**/
 #contact_us{
 	background-image:  url("img/background8.jpg"); 
