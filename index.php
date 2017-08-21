@@ -143,7 +143,7 @@
 <!DOCTYPE html> 
 <html>
 	<head>
-		<meta name=“viewport” content=“width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 		<link rel="stylesheet" type="text/css" href="linkagency.css">
 		<link rel="stylesheet" type="text/css" href="linkagency_mobile.css">
@@ -152,7 +152,7 @@
     	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
 		<script src="js/jquery-3.2.1.js"></script>
 		<!-- <script src="js/jquery-3.2.1.min.js"></script> -->
-		<script src = "js/animations.js"></script>
+		<script src = "js/animations.js"></script>
 
 		<!--for first gallery-->
 		<script>
@@ -336,34 +336,33 @@
 			
 				<div class="menu"><a id="toggler" href="#"><img src="img/menu.png"></a></div>
 				<div id="box" style="display: none;">
+				<div class="close"><a id="toggler_close" style="display:none" href="#"><img src="img/close.png"></a></div>
                     <div>
-                    <ul>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
+                    <ul class="box_li">
+                    <li><a href="#" id="closeclose">Главная</a></li>
+                    <li><a href="#about_us">О компании</a></li>
+                    <li><a href="#contact_us_mobile">Услуги</a></li>
+                    <li><a href="#gallery">Нестандартные форматы</a></li>
+                    <li><a href="#footer">Контакты</a></li>
                     </ul>
                     </div>
                 </div>
 				
 				<script>
-					window.onload= function() {
-					document.getElementById('toggler').onclick = function() {
-						openbox('box', this);
-						return false;
-					};
-				};
-					function openbox(id, toggler) {
-						var div = document.getElementById(id);
-						if(div.style.display == 'block') {
-							div.style.display = 'none';
-						}
-						else {
-							div.style.display = 'block';
-						}
-				}
+				$(document).ready(function(){
+					$("#toggler").click(function () {
+						$("#box").css("display","block");
+						$("#toggler_close").css("display","block");
+				});
+				$("#toggler_close").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
+				$("#closeclose").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
+				});
 				</script>
 			
 				<div id="float_block_2">
@@ -384,7 +383,6 @@
 						<li><a href="#about_us">О Компании</a></li>
 						<li><a href="#contact_us">Услуги</a></li>
 						<li><a href="#gallery">Нестандартные форматы</a></li>
-						<li><a href="#gallery2">Партнеры</a></li>
 						<li><a href="#footer">Контакты</a></li>
 					</ul>
 				</div>
@@ -792,6 +790,100 @@
 				</div>
 			</div>
 
+			<div id="contact_us_mobile">
+			
+					<div class="block1_mobile">
+						
+						<div class="block1_content">
+							<img src="img/1.png" width="70%">
+
+							<h1>Преролл</h1>
+							<p>Видеоролик хронометражем<br> 
+							до 30 секунд перед фильмом<br> 
+							или сериалом.</p>
+
+							<h2>Досматриваемость 92%<br> 
+							СРМ 150 до 300 рублей<br> 
+							СТR 9%<br> 
+							Более 1 млн. показов в сутки</h2>
+						</div>
+						
+						<a id="toggler_new"><button class="content_button">contact us</button></a>
+						
+					</div>
+
+					<div class="block2_mobile" style="display:none">
+						
+						<div class="block2_content">
+							<img src="img/2.png" width="70%">
+
+							<h1>Брендирование</h1>
+							<p>Баннер с максимальным СR<br> 
+							на первом экране<br> 
+							пользователя.</p>
+
+							<h2>Самый яркий и заметный формат<br>
+								CPM: 45 - 75 рублей<br>
+								CTR 1,2%<br>
+								Более 300 млн. показов в месяц
+							</h2>
+							
+							<a id="toggler1"><button class="content_button">contact us</button></a>
+						</div>
+					</div>
+
+					<div class="block3_mobile" style="display:none">
+					
+						<div class="block3_content">
+							<img src="img/3.png" width="70%">
+
+							<h1>Баннеры</h1>
+							<p>Огромный баннер, который<br> 
+							со всех сторон обвязывает<br> 
+							контент сайта.</p>
+
+							<h2>CPM: 20 - 50 рублей<br>
+								CTR 0,4%<br>
+								Более 500 млн. показов в месяц<br>
+								«Резиновый» формат в мобильной<br> версии
+							</h2>
+							
+							<a id="toggler1"><button class="content_button">contact us</button></a>
+						</div>
+					</div>
+						
+						
+					<div class="round_buttons_11">
+						<button id="flip_11"></button>
+						<button id="flip_22"></button>
+						<button id="flip_33"></button>
+					</div>
+					
+					<script>
+						$(document).ready(function(){
+							$("#flip_11").click(function () {
+								$(".block2_mobile").css("display","none");
+								$(".block3_mobile").css("display","none");
+								$(".block1_mobile").fadeIn(400);
+								$(".block1_mobile").css("display","block");
+							});
+							$("#flip_22").click(function () {
+								$(".block1_mobile").css("display","none");
+								$(".block3_mobile").css("display","none");
+								$(".block2_mobile").fadeIn(400);
+								$(".block2_mobile").css("display","block");
+							});
+							$("#flip_33").click(function () {
+								$(".block1_mobile").css("display","none");
+								$(".block2_mobile").css("display","none");
+								$(".block3_mobile").fadeIn(400);
+								$(".block3_mobile").css("display","block");
+							});
+						});
+					</script>
+					
+			</div>
+			
 			<div id="gallery">
 
 				<div class="text_block"><p>нестандартные форматы</p></div>
@@ -969,9 +1061,213 @@
 				});
 			</script>
 
+			<div id="gallery2_mobile">
+				<div class="case">КЕЙС</div>
+
+				<div id="divv" class="baion">
+					<div id="gallery2_img_pos"><img src="img/gallery/baion_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/baion.png">
+						
+						<div class="gal2_text" align="center;">
+							<p>Форматы:   Брендирование, баннеры<br>
+							Охват:   7,1млн. уникальных юзеров<br>
+							Цена контакта с ЦА:   0,3 рубля<br>
+							Трафик на сайт: 152 785 переходов за месяц<br>
+							CPC:   1,3 рубля<br>
+							Увеличение кол-ва заказов на 12%<br></p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="tinkoff" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/tinkoff_1.png" alt=""></div>
+					<div class="info_pos">	
+						<img src="img/keisi/tinkoff.png">
+
+						<div class="gal2_text" align="center;">
+							<p>Охват:   8,5 млн. уникальных юзеров<br>
+								Цена контакта с ЦА:   0,2 рубля<br>
+								Досмотры ролика:   94%<br>
+								CPV(стоимость просмотра):   0,3 рубля<br>
+								Форматы:   Баннеры, брендирование,прероллы<br>
+								Результат:   630 заявок на кредитную карту в месяц<br>
+								Стоимость заявки:   уменьшилась на 27%  по сравнению<br>
+								с другими платными каналами<br>
+								Конверсия из заявки в выдачу:   24%<br>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="fonbet" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/fonbet_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/fonbet.png">
+						
+						<div class="gal2_text" align="center;">
+							<p>Форматы:   Баннеры, брендирование, прероллы<br>
+							Результат:   4000 игроков в месяц<br>
+							Стоимость игрока:   дешевле на 31% по сравнению<br> с другими платными каналами<br></p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="xbet" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/xbet_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/1xbet.jpg">
+					
+						<div class="gal2_text" align="center;">
+							<p>Форматы:   Преролы<br>
+							Охват:   7,1 млн. уникальных юзеров<br>
+							Досмотры ролика: 93%<br>
+							CPV:   0,17 рубля<br></p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="leon" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/leon_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/leon.jpg">
+
+						<div class="gal2_text" align="center;">
+						<p>Форматы:   Баннеры, брендирование<br>
+							Охват:   1,7 млн. уникальных юзеров<br>
+							Цена контакта с ЦА:   0,08 рубля<br>
+							Средний CTR:   1,3%<br>
+						</p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="pizza" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/pizza_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/domnios_pizza.png">
+						
+						<div class="gal2_text" align="center;">
+						<p>Форматы:   Баннеры, брендирование <br>
+							Охват:   1,7 млн. уникальных юзеров<br>
+							Цена контакта с ЦА:   0,18 рубля<br>
+							Средний CTR:   1,3%<br>
+							Трафика на сайт:   46 991 переход<br>
+						</p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="divv" class="auto" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/auto_1.png" alt=""></div>
+					<div class="info_pos">
+						<img src="img/keisi/autoru.png">
+						
+						<div class="gal2_text" align="center;">
+						<p>Форматы: <br>
+							Преролл, баннеры, брендирование (мобайл)<br>
+							Охват: <br>
+							1,2 млн. уникальных юзеров <br>
+							Цена контакта с ЦА:<br>
+							0,15 рублей<br>
+							Досмотры ролика:<br>
+							88%<br>
+							CPV (стоимость просмотра):   0,17 рубля<br>
+						</p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="round_buttons_gal2">
+						<button id="flip_4"></button>
+						<button id="flip_5"></button>
+						<button id="flip_6"></button>
+						<button id="flip_7"></button>
+						<button id="flip_8"></button>
+						<button id="flip_9"></button>
+						<button id="flip_10"></button>
+				</div>
+				
+				<script>
+				$(document).ready(function(){
+					$("#flip_4").click(function () {
+						$(".tinkoff").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".xbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").css("display","none");
+						$(".baion").fadeIn(400);
+						$(".baion").css("display","block");
+					});
+					$("#flip_5").click(function () {
+						$(".baion").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".xbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").css("display","none");
+						$(".tinkoff").fadeIn(400);
+						$(".tinkoff").css("display","block");
+					});
+					$("#flip_6").click(function () {
+						$(".baion").css("display","none");
+						$(".tinkoff").css("display","none");
+						$(".xbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").css("display","none");
+						$(".fonbet").fadeIn(400);
+						$(".fonbet").css("display","block");
+					});
+					$("#flip_7").click(function () {
+						$(".baion").css("display","none");
+						$(".tinkoff").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").css("display","none");
+						$(".xbet").fadeIn(400);
+						$(".xbet").css("display","block");
+					});
+					$("#flip_8").click(function () {
+						$(".baion").css("display","none");
+						$(".tinkoff").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".xbet").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").css("display","none");
+						$(".leon").fadeIn(400);
+						$(".leon").css("display","block");
+					});
+					$("#flip_9").click(function () {
+						$(".baion").css("display","none");
+						$(".tinkoff").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".xbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".auto").css("display","none");
+						$(".pizza").fadeIn(400);
+						$(".pizza").css("display","block");
+					});
+					$("#flip_10").click(function () {
+						$(".baion").css("display","none");
+						$(".tinkoff").css("display","none");
+						$(".fonbet").css("display","none");
+						$(".xbet").css("display","none");
+						$(".leon").css("display","none");
+						$(".pizza").css("display","none");
+						$(".auto").fadeIn(400);
+						$(".auto").css("display","block");
+					});
+				});
+				</script>
+			
+			</div>
+			
 			<div id="footer">
 				<div class="footer_links">
-					<div>
+					<div class="footer_one">
 						<h3>Link Agency</h3>
 						<p>Link объединил в рекламную сеть<br> 
 							все крупнейшие онлайн-кинотеатры,<br> 
@@ -980,7 +1276,7 @@
 						</p>
 					</div>
 					
-						<form action="index.php" method="post" name ="mailcontact">
+						<form class="footer_two" action="index.php" method="post" name ="mailcontact">
     						<div>
 								<h3>Свяжитесь с нами:</h3>
 								<p>Имя, фамилия:</p><input type="text" name="name_and_last" class="footer_input_">
@@ -988,24 +1284,24 @@
 								<input class="footer_button" type="submit" name="sentemail" value="subscribe"></input>
 							</div>
 						</form>
-					<div>
+					<div class="footer_three">
 						<h3>Контент:</h3>
 
 						<div class="flex2">
 							<div class="padding">
 								<ul>
 									<li><a href="#header">Домой</a></li>
-									<li><a href="#about_us">О компании<a></li>
-									<li><a href="#graphical_diagram">Аудитория<a></li>
-									<li><a href="#contact_us">Услуги<a></li>
+									<li><a href="#about_us">О компании</a></li>
+									<li><a href="#graphical_diagram">Аудитория</a></li>
+									<li><a href="#contact_us">Услуги</a></li>
 								</ul>
 							</div>
 
 							<div class="padding">
 								<ul>
-									<li><a href="#gallery">Кейсы<a></li>
-									<li><a href="#footer">Контакты<a></li>
-									<li><a href="#gallery2">Партнеры<a></li>
+									<li><a href="#gallery">Кейсы</a></li>
+									<li><a href="#footer">Контакты</a></li>
+									
 								</ul>
 							</div>
 						</div>
