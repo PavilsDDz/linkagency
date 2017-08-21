@@ -333,6 +333,27 @@
 			</div> -->
 
 			<div id="header">
+			
+				<div class="menu"><a id="toggler" href="#"><img src="img/menu.png" width="70%"></a></div>
+				
+				<script>
+					window.onload= function() {
+					document.getElementById(‘toggler’).onclick = function() {
+						openbox(‘box’, this);
+						return false;
+					};
+				};
+					function openbox(id, toggler) {
+						var div = document.getElementById(id);
+						if(div.style.display == ‘block’) {
+							div.style.display = ‘none’;
+						}
+						else {
+							div.style.display = ‘block’;
+						}
+				}
+				</script>
+			
 				<div id="float_block_2">
 					<div class="round_buttons_2">
 						<a href="#header"><button id="toggle"></button></a>
@@ -344,7 +365,7 @@
 						<a href="#gallery2"><button id="toggle6"></button></a>
 					</div>
 				</div>
-
+				
 				<div class="navigation">
 					<ul>
 						<li class="logo"><img src="img/logo.png"></li>
