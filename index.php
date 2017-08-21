@@ -1,6 +1,4 @@
 <?php
-// hi!!!!!
-
 	if(isset($_POST['submit'])) 
 {
  
@@ -75,7 +73,6 @@
 
 ?>
 
- 
 <?php
 	include ('assets/connect.php');
 	include ('assets/function.php');
@@ -142,8 +139,6 @@
 		}
 	}
 ?>
-
-
 
 <!DOCTYPE html> 
 <html>
@@ -393,11 +388,11 @@
 								<div class=" flex wrap">
 									<div class="gender fe flex"><div class="icon"></div><div class="text"><p class="prec">52%</p><p>Женщины</p></div></div>	
 									<div class="gender ma flex"><div class="icon"></div><div class="text"><p class="prec">48%</p><p>Мужчины</p></div></div>	
-									<div class="numbers" male="7" female="9"><p>0</p><p>0<p></div>
-									<div class="numbers" male="17" female="18"><p>0</p><p>0<p></div>
-									<div class="numbers" male="13" female="13"><p>0</p><p>0<p></div>
-									<div class="numbers" male="7" female="7"><p>0</p><p>0<p></div>
-									<div class="numbers" male="4" female="4"><p>0</p><p>0<p></div>
+									<div class="numbers" male="7" female="9"><p>0</p><p>0</p></div>
+									<div class="numbers" male="17" female="18"><p>0</p><p>0</p></div>
+									<div class="numbers" male="13" female="13"><p>0</p><p>0</p></div>
+									<div class="numbers" male="7" female="7"><p>0</p><p>0</p></div>
+									<div class="numbers" male="4" female="4"><p>0</p><p>0</p></div>
 									<div class="text_under flex">
 										<p class="abs">возраст</p>
 										<p>< 18</p>
@@ -952,30 +947,30 @@
 					
 						<form action="index.php" method="post" name ="mailcontact">
     						<div>
-								<h3>Contact Us:</h3>
+								<h3>Свяжитесь с нами:</h3>
 								<p>Имя, фамилия:</p><input type="text" name="name_and_last" class="footer_input_">
 								<p>Электронная почта:</p><input type="text" name="conemail" class="footer_input_">
 								<input class="footer_button" type="submit" name="sentemail" value="subscribe"></input>
 							</div>
 						</form>
 					<div>
-						<h3>Content:</h3>
+						<h3>Контент:</h3>
 
 						<div class="flex2">
 							<div class="padding">
 								<ul>
-									<li>Home</li>
-									<li>О компании</li>
-									<li>Аудитория</li>
-									<li>Услуги</li>
+									<li><a href="#header">Домой</a></li>
+									<li><a href="#about_us">О компании<a></li>
+									<li><a href="#graphical_diagram">Аудитория<a></li>
+									<li><a href="#contact_us">Услуги<a></li>
 								</ul>
 							</div>
 
 							<div class="padding">
 								<ul>
-									<li>Кейсы</li>
-									<li>Контакты</li>
-									<li>Партнеры</li>
+									<li><a href="#gallery">Кейсы<a></li>
+									<li><a href="#footer">Контакты<a></li>
+									<li><a href="#gallery2">Партнеры<a></li>
 								</ul>
 							</div>
 						</div>
