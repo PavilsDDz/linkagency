@@ -334,22 +334,34 @@
 
 			<div id="header">
 			
-				<div class="menu"><a id="toggler" href="#"><img src="img/menu.png" width="70%"></a></div>
+				<div class="menu"><a id="toggler" href="#"><img src="img/menu.png"></a></div>
+				<div id="box" style="display: none;">
+                    <div>
+                    <ul>
+                    <li><a></a></li>
+                    <li><a></a></li>
+                    <li><a></a></li>
+                    <li><a></a></li>
+                    <li><a></a></li>
+                    <li><a></a></li>
+                    </ul>
+                    </div>
+                </div>
 				
 				<script>
 					window.onload= function() {
-					document.getElementById(‘toggler’).onclick = function() {
-						openbox(‘box’, this);
+					document.getElementById('toggler').onclick = function() {
+						openbox('box', this);
 						return false;
 					};
 				};
 					function openbox(id, toggler) {
 						var div = document.getElementById(id);
-						if(div.style.display == ‘block’) {
-							div.style.display = ‘none’;
+						if(div.style.display == 'block') {
+							div.style.display = 'none';
 						}
 						else {
-							div.style.display = ‘block’;
+							div.style.display = 'block';
 						}
 				}
 				</script>
