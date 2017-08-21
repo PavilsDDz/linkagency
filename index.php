@@ -143,8 +143,10 @@
 <!DOCTYPE html> 
 <html>
 	<head>
+		<meta name=“viewport” content=“width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 		<link rel="stylesheet" type="text/css" href="linkagency.css">
+		<link rel="stylesheet" type="text/css" href="linkagency_mobile.css">
     	<title>link agency</title>
 
     	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
