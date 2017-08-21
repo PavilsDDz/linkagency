@@ -830,7 +830,8 @@ input:focus {
 	padding-top: 4vw;
 }
 .block_3 img{
-	width: 45vw;
+	width: 60vw;
+margin-top: -6vw
 }
 .block_1{
 	display: flex;
@@ -1108,3 +1109,14 @@ input [type="text"]:-ms-input-placeholder      {color:white;}
     -moz-transform: scale(0.3);
 }
 }
+
+
+/*  S.J. CSS*/
+
+#float_block_blue2{
+    z-index: 10;
+}
+#footer{
+    height: 27vw;
+}
+.partners, .caption{display:none}

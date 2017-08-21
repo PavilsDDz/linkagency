@@ -5,7 +5,9 @@
 {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "my.worktest94@gmail.com";
+    $email_to = "roman@link.agency"; 
+	//my.worktest94@gmail.com
+
     $email_subject = "Your email subject line";
  
     function died($error) {
@@ -112,6 +114,35 @@
 
 	}
 ?>
+
+<?php
+
+	if(isset($_POST['sentemail'])) {
+		$mailto = 'roman@link.agency';
+
+		$nal = $_POST["name_and_last"];
+		$conemail = $_POST["conemail"];
+
+		$subjects = 'the subjects';
+		$message = "Name, Lastname:" . " " . $nal . "\r\n" . "Email:" . " " . $conemail;
+
+		'Reply-To:' . " " . $mail . "\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+
+		@mail($mailto, $subjects, $message, $headers);
+
+		if(@mail($mailto, $subjects, $message, $headers))
+		{
+		echo "<script>alert('Mail was sent !');</script>";
+		echo "<script>document.location.href='index.php'</script>";
+		}
+		else
+		{
+		echo "<script>alert('Mail was not sent. Please try again later');</script>";
+		}
+	}
+?>
+
 
 
 <!DOCTYPE html> 
@@ -252,7 +283,7 @@
 	<body>
 		<div id="class_container">
 
-			<div id="float_block">
+			<!-- <div id="float_block">
 				<div class="a"><p>follow us @linkagency.ru</p></div>
 				<div class="b"></div>
 
@@ -263,9 +294,9 @@
 						<li><a class="twitter-follow-button" href="https://twitter.com/" data-size="large"><img src="img/twitter.png" width="170%"></a></li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 			
-			<div id="float_block_blue">
+			<!-- <div id="float_block_blue">
 				<div class="a_blue"><p>follow us @linkagency.ru</p></div>
 				<div class="b_blue"></div>
 
@@ -276,9 +307,9 @@
 						<li><a class="twitter-follow-button" href="https://twitter.com/" data-size="large"><img src="img/twitter_blue.png" width="170%"></a></li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 			
-			<div id="float_block_white">
+			<!-- <div id="float_block_white">
 				<div class="a"><p>follow us @linkagency.ru</p></div>
 				<div class="b"></div>
 
@@ -289,9 +320,9 @@
 						<li><a class="twitter-follow-button" href="https://twitter.com/" data-size="large"><img src="img/twitter.png" width="170%"></a></li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 			
-			<div id="float_block_blue2">
+			<!-- <div id="float_block_blue2">
 				<div class="a_blue"><p>follow us @linkagency.ru</p></div>
 				<div class="b_blue"></div>
 
@@ -302,7 +333,7 @@
 						<li><a class="twitter-follow-button" href="https://twitter.com/" data-size="large"><img src="img/twitter_blue.png" width="170%"></a></li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 
 			<div id="header">
 				<div id="float_block_2">
@@ -322,7 +353,7 @@
 						<li class="logo"><img src="img/logo.png"></li>
 						<li><a href="#about_us">О Компании</a></li>
 						<li><a href="#contact_us">Услуги</a></li>
-						<li><a href="#gallery">Вебмастерам</a></li>
+						<li><a href="#gallery">Нестандартные форматы</a></li>
 						<li><a href="#gallery2">Партнеры</a></li>
 						<li><a href="#footer">Контакты</a></li>
 					</ul>
@@ -733,7 +764,7 @@
 
 			<div id="gallery">
 
-				<div class="text_block"><p><span>вебмастерам<br></span>нестандартные форматы</p></div>
+				<div class="text_block"><p>нестандартные форматы</p></div>
 
 				<div class="round_buttons">
 					<button id="flip_1"></button>
@@ -919,13 +950,14 @@
 						</p>
 					</div>
 					
-					<div>
-						<h3>Contact Us:</h3>
-						<p>Имя, фамилия:</p><input type="text" class="footer_input_">
-						<p>Электронная почта:</p><input type="text" class="footer_input_">
-						<p><input class="footer_button_" type="submit"></p>
-					</div>
-					
+						<form action="index.php" method="post" name ="mailcontact">
+    						<div>
+								<h3>Contact Us:</h3>
+								<p>Имя, фамилия:</p><input type="text" name="name_and_last" class="footer_input_">
+								<p>Электронная почта:</p><input type="text" name="conemail" class="footer_input_">
+								<input class="footer_button" type="submit" name="sentemail" value="subscribe"></input>
+							</div>
+						</form>
 					<div>
 						<h3>Content:</h3>
 
@@ -950,7 +982,7 @@
 					</div>
 					
 					<div class="follow_us">
-						<div class="flex2">
+						<!-- <div class="flex2">
 							<div class="followus"><h3>Follow us:</h3></div>
 
 
@@ -961,7 +993,7 @@
 								<a class="instagram-follow-button" href="https://www.instagram.com/" data-size="large"><img src="img/instagram.png" width="20px"></a>
 								<a class="twitter-follow-button" href="https://twitter.com/" data-size="large"><img src="img/twitter.png" width="20px"></a>
 							</div>
-						</div>
+						</div> -->
 
 						
 						<form action="index.php" method="post" name ="subForm">
@@ -973,16 +1005,6 @@
 					</div>
 				</div>
 				
-				<div id="partners">
-					<div class="caption"><h3>Our partners</h3></div>
-
-					<div class="partners">
-						<a><img src="img/partners/tinkoff.png"></a>
-						<a><img class="audi" src="img/partners/audi.png"></a>
-						<a><img src="img/partners/royal.png"></a>
-						<a><img src="img/partners/vivus.png"></a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</body>
