@@ -1,25 +1,25 @@
 <?php
 	if(isset($_POST['submit'])) 
 {
+
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "roman@link.agency"; 
-	//my.worktest94@gmail.com
+    $email_to = "roman@link.agency";
+	// roman@link.agency
 
-    $email_subject = "Your email subject line";
+    $email_subject = "Сообщение от linkagency.tk";
  
     function died($error) {
         // your error code can go here
-        echo "<script>alert('Mail not sent !');</script>";
-		die();
-		
+        echo "<script>alert(' Письмо не отправлено!');</script>";
+		die();	
     }
  
  
     // validation expected data exists
     if(!isset($_POST['email']) ||
         !isset($_POST['comments'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+        died('Извините, возникла проблема с формой, которую вы предоставили.');       
     }
  
     $email_from = $_POST['email']; // required
@@ -29,13 +29,13 @@
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
     if(!preg_match($email_exp,$email_from)) {
-        $error_message .= 'Enter email.<br />';
+        $error_message .= 'Введите электронную почту.<br />';
     }
  
     $string_exp = "/^[A-Za-z .'-]+$/";
  
     if(strlen($comments) < 2) {
-        $error_message .= 'Enter text.<br />';
+        $error_message .= ' Введите текст.<br />';
     }
  
     if(strlen($error_message) > 0) {
@@ -48,24 +48,25 @@
       return str_replace($bad,"",$string);
     }
  
-	
+	$email_message = "" . " " . $comments . "\r\n";
     
     // create email headers
     $headers = 'From: '.$email_from."\r\n".
     'Reply-To: '.$email_from."\r\n" .
+	"Content-Type: text/html;charset=utf-8"."\r\n" .
     'X-Mailer: PHP/' . phpversion();
-	@mail($email_to, $email_subject, $email_message, $headers);  
+	//@mail($email_to, $email_subject, $email_message, $headers);  
 
 	// try {
 
 		if(@mail($email_to, $email_subject, $email_message, $headers))
 		{
-		echo "<script>alert('Mail was sent !');</script>";
-		echo "<script>document.location.href='index.php'</script>";
+			echo "<script>alert('Письмо отправлено !');</script>";
+			echo "<script>document.location.href='index.php'</script>";
 		}
 		else
 		{
-		echo "<script>alert('Mail was not sent. Please try again later');</script>";
+			echo "<script>alert('Письмо не отправлено. Пожалуйста, попробуйте еще раз позже');</script>";
 		}
 	// }
     
@@ -89,7 +90,7 @@
         $emailErr = '';
 
         if($row['email']==$email) {
-            $emailError = "EMAIL exist! ".$row['email'];
+            $emailError = "Электронная почта уже существует!".$row['email'];
             $trueError = true;
             $emailErr = 'emailErr'.$row['email'];
 
@@ -102,12 +103,17 @@
             ]);
         }
 						
-			if(isset($errsuc)){
-				alert ($errsuc);
+			if(isset($emailError)){
+				// alert ($emailError);
+
+				echo "<script>alert(' Электронная почта уже существует!');</script>";
+			}else{
+
+				echo "<script>alert('Ваша электронная почта  успешно зарегистрирована!');</script>";
+
 			}
 						
-
-    }else{
+    	}else{
 
 	}
 ?>
@@ -115,29 +121,47 @@
 <?php
 
 	if(isset($_POST['sentemail'])) {
-		$mailto = 'roman@link.agency';
+		
+		if(!empty($_POST["name_and_last"]) && !empty($_POST["conemail"])){
 
-		$nal = $_POST["name_and_last"];
-		$conemail = $_POST["conemail"];
+			$mailto = 'roman@link.agency';
+			// roman@link.agency
 
-		$subjects = 'the subjects';
-		$message = "Name, Lastname:" . " " . $nal . "\r\n" . "Email:" . " " . $conemail;
+			$nal = $_POST["name_and_last"];
+			$conemail = $_POST["conemail"];
 
-		'Reply-To:' . " " . $mail . "\r\n" .
-		'X-Mailer: PHP/' . phpversion();
+			$subjects = 'Сообщение от linkagency.tk';
+			$message = "Имя:" . " " . $nal . " " . "-" . " " . "Электронная почта:" . " " . $conemail;
 
-		@mail($mailto, $subjects, $message, $headers);
+			$headers = 'From: '.$conemail."\r\n".
+			'Reply-To: '.$conemail."\r\n" .
+			"Content-Type: text/html;charset=utf-8"."\r\n" .
+			'X-Mailer: PHP/' . phpversion();
 
-		if(@mail($mailto, $subjects, $message, $headers))
-		{
-		echo "<script>alert('Mail was sent !');</script>";
-		echo "<script>document.location.href='index.php'</script>";
+			//@mail($mailto, $subjects, $message, $headers);
+
+			if(@mail($mailto, $subjects, $message, $headers))
+			{
+				echo "<script>alert('Письмо отправлено !');</script>";
+				echo "<script>document.location.href='index.php'</script>";
+			}
+			else
+			{
+				echo "<script>alert('Письмо не отправлено. Пожалуйста, попробуйте еще раз позже');</script>";
+			}
+
+
 		}
 		else
 		{
-		echo "<script>alert('Mail was not sent. Please try again later');</script>";
+
+		echo "<script>alert('Письмо не отправлено. Пожалуйста, введите данные!');</script>";
+
 		}
-	}
+		
+	
+	}	
+	
 ?>
 
 <!DOCTYPE html> 
@@ -153,6 +177,8 @@
 		<script src="js/jquery-3.2.1.js"></script>
 		<!-- <script src="js/jquery-3.2.1.min.js"></script> -->
 		<script src = "js/animations.js"></script>
+		<script type="" src="js/hammer.js"></script>
+		
 
 		<!--for first gallery-->
 		<script>
@@ -336,14 +362,14 @@
 			
 				<div class="menu"><a id="toggler" href="#"><img src="img/menu.png"></a></div>
 				<div id="box" style="display: none;">
-				<div class="close"><a id="toggler_close" style="display:none" href="#"><img src="img/close.png"></a></div>
+				<a id="toggler_close" style="display:none" href="#"><div class="close"><img src="img/close.png"></div></a>
                     <div>
                     <ul class="box_li">
                     <li><a href="#" id="closeclose">Главная</a></li>
-                    <li><a href="#about_us">О компании</a></li>
-                    <li><a href="#contact_us_mobile">Услуги</a></li>
-                    <li><a href="#gallery">Нестандартные форматы</a></li>
-                    <li><a href="#footer">Контакты</a></li>
+                    <li><a href="#about_us" id="closeclose1">О компании</a></li>
+                    <li><a href="#contact_us_mobile" id="closeclose2">Услуги</a></li>
+                    <li><a href="#gallery" id="closeclose3">Нестандартные форматы</a></li>
+                    <li><a href="#footer" id="closeclose4">Контакты</a></li>
                     </ul>
                     </div>
                 </div>
@@ -362,10 +388,26 @@
 						$("#box").css("display","none");
 						$("#toggler_close").css("display","none");
 				});
+				$("#closeclose1").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
+				$("#closeclose2").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
+				$("#closeclose3").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
+				$("#closeclose4").click(function () {
+						$("#box").css("display","none");
+						$("#toggler_close").css("display","none");
+				});
 				});
 				</script>
 			
-				<div id="float_block_2">
+				<div id="float_block_2" class="flex">
 					<div class="round_buttons_2">
 						<a href="#header"><button id="toggle"></button></a>
 						<a href="#about_us"><button id="toggle1"></button></a>
@@ -426,6 +468,7 @@
 									<div class="numbers" male="13" female="13"><p>0</p><p>0</p></div>
 									<div class="numbers" male="7" female="7"><p>0</p><p>0</p></div>
 									<div class="numbers" male="4" female="4"><p>0</p><p>0</p></div>
+								</div>
 									<div class="text_under flex">
 										<p class="abs">возраст</p>
 										<p>< 18</p>
@@ -434,7 +477,6 @@
 										<p>35-44</p>
 										<p>45+</p>
 									</div>
-								</div>
 							</div>
 						</div>
 						<div id="secondD" class="diagram" style="left: 100%">
@@ -529,24 +571,32 @@
 				</div>
 			</div>
 			<script type="">
+var windowW
+			$(function(){
+				windowW = $(window).width()
 
-				var dotCount = 350;
-				var dotSizeMax = 13;
-				var dotSizeMin = 1;
+				if (windowW>900) {
+					var dotCount = 350;
+						var dotSizeMax = 13;
+						var dotSizeMin = 1;
 
-				var bg = document.getElementById('diagram_bg')
+						var bg = document.getElementById('diagram_bg')
 
-				bg.width = $('#graphical_diagram').width()*3;
-            	bg.height = $('#graphical_diagram').height();
+						bg.width = $('#graphical_diagram').width()*3;
+            			bg.height = $('#graphical_diagram').height();
 
-				bgctx = bg.getContext('2d')
-				//bgctx.fillStyle = "#ffffff"
-				for (var i = 0; i < dotCount; i++) {
-					bgctx.beginPath();
-			      	bgctx.fillStyle = 'rgba(255,255,255,0.8)';
-			      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
-			      	bgctx.fill();
-				}
+						bgctx = bg.getContext('2d')
+
+						//bgctx.fillStyle = "#ffffff"
+							for (var i = 0; i < dotCount; i++) {
+								bgctx.beginPath();
+						      	bgctx.fillStyle = 'rgba(255,255,255,0.8)';
+						      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
+						      	bgctx.fill();
+							}
+					}
+				
+				})
 
 
 			</script>
@@ -563,7 +613,7 @@
 								<div class="contry" style="background-color: #165c80" val='1'><p>Армения - <span class="val">0%</span></p></div>
 								<div class="contry" style="background-color: #1b6388" val='1'><p>Германия - <span class="val">0%</span></p></div>
 							</div>
-							<div class="wrap S">
+							<div class="wrap S" id="diagram2">
 								<p class="info">Регионы России:</p>
 								<div class="region" style="background-color: #54c1fa" val='221'><p>Остальные регионы России - <span class="val">0%</span></p></div>
 								<div class="region" style="background-color: #00ff5a" val='119'><p>1. Москва - <span class="val">0%</span></p></div>
@@ -593,6 +643,9 @@
 				<canvas id="diagram_bg2">	</canvas>
 				<script type="">
 
+				
+			$(function(){
+			if (windowW>900) {
 				var dotCount = 100;
 				var dotSizeMax = 13;
 				var dotSizeMin = 1;
@@ -610,7 +663,8 @@
 			      	bgctx.arc(Math.random()*bg.width, Math.random()*bg.height, dotSizeMin+(Math.random(dotSizeMax - dotSizeMin)*Math.random()/0.5), 0, 2 * Math.PI, false);
 			      	bgctx.fill();
 				}
-
+			}
+			})
 
 			</script>
 				
@@ -620,7 +674,7 @@
 
 				<div class="wrap flex">
 					<div class="block1">
-						<a id="toggler1"><button class="content_button">contact us</button></a>
+						<a id="toggler1"><button class="content_button">свяжитесь с нами</button></a>
 						
 						<div class="block1_content">
 							<img src="img/1.png" width="70%">
@@ -642,7 +696,7 @@
 
 								<tr>
 									<td valign="top">
-										<label for="email">Email Address *</label>
+										<label for="email">Электронная почта:</label>
 									</td>
 
 									<td class="new_input" valign="top">
@@ -653,7 +707,7 @@
 
 								<tr>
 									<td valign="top">
-										<label for="comments">Comments *</label>
+										<label for="comments">Комментарий:</label>
 									</td>
 
 									<td valign="top">
@@ -664,7 +718,7 @@
 
 								<tr>
 									<td colspan="2" style="text-align:center">
-										<input type="submit" name="submit" value="Send" class="submit_input">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
 									</td>
 								</tr>
 								
@@ -675,7 +729,7 @@
 					</div>
 
 					<div class="block2">
-						<a id="toggler2"><button class="content_button">contact us</button></a>
+						<a id="toggler2"><button class="content_button">свяжитесь с нами</button></a>
 						
 						<div class="block2_content">
 							<img src="img/2.png" width="70%">
@@ -699,7 +753,7 @@
 
 								<tr>
 									<td valign="top">
-										<label for="email">Email Address *</label>
+										<label for="email">Электронная почта:</label>
 									</td>
 
 									<td class="new_input" valign="top">
@@ -710,7 +764,7 @@
 
 								<tr>
 									<td valign="top">
-										<label for="comments">Comments *</label>
+										<label for="comments">Комментарий:</label>
 									</td>
 
 									<td valign="top">
@@ -721,7 +775,7 @@
 
 								<tr>
 									<td colspan="2" style="text-align:center">
-										<input type="submit" name="submit" value="Send" class="submit_input">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
 									</td>
 								</tr>
 								
@@ -732,7 +786,7 @@
 					</div>
 
 					<div class="block3">
-						<a id="toggler3"><button class="content_button">contact us</button></a>
+						<a id="toggler3"><button class="content_button">свяжитесь с нами</button></a>
 						
 						<div class="block3_content">
 							<img src="img/3.png" width="70%">
@@ -751,12 +805,12 @@
 						</div>
 						<div id="box3" style="display: none;">
 
-							<form action="index.php" method="post" name="cform" class="contact_form" style="top: 2.2vw">
+							<form action="index.php" method="post" name="cform" class="contact_form" style="top: 1.2vw">
 							<table>
 
 								<tr>
 									<td valign="top">
-										<label for="email">Email Address *</label>
+										<label for="email">Электронная почта:</label>
 									</td>
 
 									<td class="new_input" valign="top">
@@ -767,7 +821,7 @@
 
 								<tr>
 									<td valign="top">
-										<label for="comments">Comments *</label>
+										<label for="comments">Комментарий:</label>
 									</td>
 
 									<td valign="top">
@@ -778,7 +832,7 @@
 
 								<tr>
 									<td colspan="2" style="text-align:center">
-										<input type="submit" name="submit" value="Send" class="submit_input">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
 									</td>
 								</tr>
 								
@@ -808,7 +862,52 @@
 							Более 1 млн. показов в сутки</h2>
 						</div>
 						
-						<a id="toggler_new"><button class="content_button">contact us</button></a>
+						<a id="toggler_new"><button class="content_button">свяжитесь с нами</button></a>
+						<div id="box1_new" style="display: none;">
+						<form action="index.php" method="post" name="cform" class="contact_form">
+							<table>
+
+								<tr>
+									<td valign="top">
+										<label for="email">Электронная почта:</label>
+									</td>
+
+									<td class="new_input" valign="top">
+										<input  type="text" name="email" maxlength="80" size="30">
+									</td>
+								</tr>
+
+
+								<tr>
+									<td valign="top">
+										<label for="comments">Комментарий:</label>
+									</td>
+
+									<td valign="top">
+										<textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+									</td>
+								</tr>
+
+
+								<tr>
+									<td colspan="2" style="text-align:center">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
+									</td>
+								</tr>
+								
+								
+							</table>
+						</form>
+						</div>
+						<script>
+						$(document).ready(function(){
+							$("#toggler_new").click(function () {
+								$( "#box1_new" ).slideToggle( "slow", function() {
+							});
+						});
+						
+						});
+						</script>
 						
 					</div>
 
@@ -828,7 +927,52 @@
 								Более 300 млн. показов в месяц
 							</h2>
 							
-							<a id="toggler1"><button class="content_button">contact us</button></a>
+						<a id="toggler_new_2"><button class="content_button">свяжитесь с нами</button></a>
+						<div id="box2_new" style="display: none;">
+						<form action="index.php" method="post" name="cform" class="contact_form">
+							<table>
+
+								<tr>
+									<td valign="top">
+										<label for="email">Электронная почта:</label>
+									</td>
+
+									<td class="new_input" valign="top">
+										<input  type="text" name="email" maxlength="80" size="30">
+									</td>
+								</tr>
+
+
+								<tr>
+									<td valign="top">
+										<label for="comments">Комментарий:</label>
+									</td>
+
+									<td valign="top">
+										<textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+									</td>
+								</tr>
+
+
+								<tr>
+									<td colspan="2" style="text-align:center">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
+									</td>
+								</tr>
+								
+								
+							</table>
+						</form>
+						</div>
+						<script>
+						$(document).ready(function(){
+							$("#toggler_new_2").click(function () {
+								$( "#box2_new" ).slideToggle( "slow", function() {
+							});
+						});
+						
+						});
+						</script>
 						</div>
 					</div>
 
@@ -848,7 +992,52 @@
 								«Резиновый» формат в мобильной<br> версии
 							</h2>
 							
-							<a id="toggler1"><button class="content_button">contact us</button></a>
+						<a id="toggler_new_3"><button class="content_button">свяжитесь с нами</button></a>
+						<div id="box3_new" style="display: none;">
+						<form action="index.php" method="post" name="cform" class="contact_form">
+							<table>
+
+								<tr>
+									<td valign="top">
+										<label for="email">Электронная почта:</label>
+									</td>
+
+									<td class="new_input" valign="top">
+										<input  type="text" name="email" maxlength="80" size="30">
+									</td>
+								</tr>
+
+
+								<tr>
+									<td valign="top">
+										<label for="comments">Комментарий:</label>
+									</td>
+
+									<td valign="top">
+										<textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+									</td>
+								</tr>
+
+
+								<tr>
+									<td colspan="2" style="text-align:center">
+										<input type="submit" name="submit" value="отправить" class="submit_input">
+									</td>
+								</tr>
+								
+								
+							</table>
+						</form>
+						</div>
+						<script>
+						$(document).ready(function(){
+							$("#toggler_new_3").click(function () {
+								$( "#box3_new" ).slideToggle( "slow", function() {
+							});
+						});
+						
+						});
+						</script>
 						</div>
 					</div>
 						
@@ -917,10 +1106,26 @@
 					</div>
 					
 					<div class="block_3">
-						<div><img src="img/picture3.png"></div>
+						<div id="pic_trig" ><img src="img/picture3.png"></div>
 					</div>
 				</div>
 			</div>
+			<div id="large_img">
+				
+			</div>
+			<script type="">
+					
+				$(function(){
+					$('#pic_trig').click(function(){
+
+							$('#large_img').css('display','block').html('<div class="flex"><img src="img/picture3.png"></div>')
+
+					})
+					$('#large_img').click(function(){
+						$(this).css('display', 'none')
+					})
+				})
+			</script>
 
 			<div id="gallery2">
 
@@ -943,7 +1148,7 @@
 				
 				<div class="case">КЕЙС</div>
 
-				<div id="divv" class="baion">
+				<div class="divv" id="baion">
 				
 					<div class="info_pos">
 						<img src="img/keisi/baion.png">
@@ -956,7 +1161,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="tinkoff" style="display:none">
+				<div class="divv" id="tinkoff" style="display:none">
 				
 					<div class="info_pos">	
 						<img src="img/keisi/tinkoff.png">
@@ -974,7 +1179,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="fonbet" style="display:none">
+				<div class="divv" id="fonbet" style="display:none">
 				
 					<div class="info_pos">
 						<img src="img/keisi/fonbet.png">
@@ -984,7 +1189,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="xbet" style="display:none">
+				<div class="divv" id="xbet" style="display:none">
 				
 					<div class="info_pos">
 						<img src="img/keisi/1xbet.jpg">
@@ -996,7 +1201,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="leon" style="display:none">
+				<div class="divv" id="leon" style="display:none">
 				
 					<div class="info_pos">
 						<img src="img/keisi/leon.jpg">
@@ -1009,7 +1214,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="pizza" style="display:none">
+				<div class="divv" id="pizza" style="display:none">
 				
 					<div class="info_pos">
 						<img src="img/keisi/domnios_pizza.png">
@@ -1023,7 +1228,7 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="auto" style="display:none">
+				<div class="divv" id="auto" style="display:none">
 				
 					<div class="info_pos">
 						<img src="img/keisi/autoru.png">
@@ -1045,8 +1250,9 @@
 
 			<!--second gallery text sliding-->
 			<script>
-				var $currDiv = $( ".baion" );
-				$( "#nextt" ).click(function() {
+				/*
+				var $currDiv = $( "#baion" );
+				$( ".nextt" ).click(function() {
 				$currDiv  = $currDiv .next("");
 				$( "div#divv" ).css( "display", "none" );
 				$currDiv .fadeIn(400);
@@ -1059,13 +1265,70 @@
 				$currDiv .fadeIn(400);
 				$currDiv .css( "display", "block" );
 				});
+			*/
+				var anim1 = true
+			$(function(){
+				console.log($('#gallery2 .divv'))
+				var len = $('#gallery2 .divv').length
+			//	alert(len)
+				var now = 0
+
+				function fadein_next(now){	
+					$('#gallery2 .divv:eq('+now+')').fadeIn(470,function(){
+						anim1=true
+					})
+				}
+
+				$( "#nextt" ).click(function() {
+					if (anim1) {
+							console.log(anim1)
+						anim1 = false;
+						if (now<len-1) {
+							now++
+							$('#gallery2 .divv').fadeOut(420, function(){
+								setTimeout(function(){fadein_next(now)},550)
+							})
+						}else{
+							anim1 = false;
+							now=0
+							$('#gallery2 .divv').fadeOut(420, function(){
+								setTimeout(function(){fadein_next(now)},550)
+
+							})
+						}
+					}
+
+				});
+
+
+
+				$( "#prevv" ).click(function() {
+					if (anim1) {
+							console.log(anim1)
+						anim1 = false;
+						if (now>0) {
+							now--
+							$('#gallery2 .divv').fadeOut(420, function(){
+								setTimeout(function(){fadein_next(now)},550)
+							})
+						}else{
+							anim1 = false;
+							now=len-1
+							$('#gallery2 .divv').fadeOut(420, function(){
+								setTimeout(function(){fadein_next(now)},550)
+
+							})
+						}
+					}
+				});
+			})
 			</script>
 
 			<div id="gallery2_mobile">
 				<div class="case">КЕЙС</div>
 
-				<div id="divv" class="baion">
-					<div id="gallery2_img_pos"><img src="img/gallery/baion_1.png" alt=""></div>
+				<div class="divv" id="baion">
+					<div id="gallery2_img_pos"><img src="img/gallery/baion1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/baion.png">
 						
@@ -1080,8 +1343,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="tinkoff" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/tinkoff_1.png" alt=""></div>
+				<div class="divv" id="tinkoff" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/tinkoff1.png" alt=""></div>
 					<div class="info_pos">	
 						<img src="img/keisi/tinkoff.png">
 
@@ -1100,8 +1363,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="fonbet" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/fonbet_1.png" alt=""></div>
+				<div class="divv" id="fonbet" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/fonbet1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/fonbet.png">
 						
@@ -1113,8 +1376,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="xbet" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/xbet_1.png" alt=""></div>
+				<div class="divv" id="xbet" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/xbet1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/1xbet.jpg">
 					
@@ -1127,8 +1390,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="leon" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/leon_1.png" alt=""></div>
+				<div class="divv" id="leon" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/leon1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/leon.jpg">
 
@@ -1142,8 +1405,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="pizza" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/pizza_1.png" alt=""></div>
+				<div class="divv" id="pizza" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/pizza1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/domnios_pizza.png">
 						
@@ -1158,8 +1421,8 @@
 					</div>
 				</div>
 				
-				<div id="divv" class="auto" style="display:none">
-					<div id="gallery2_img_pos"><img src="img/gallery/auto_1.png" alt=""></div>
+				<div class="divv" id="auto" style="display:none">
+					<div id="gallery2_img_pos"><img src="img/gallery/auto1.png" alt=""></div>
 					<div class="info_pos">
 						<img src="img/keisi/autoru.png">
 						
@@ -1190,76 +1453,13 @@
 				
 				<script>
 				$(document).ready(function(){
-					$("#flip_4").click(function () {
-						$(".tinkoff").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".xbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").css("display","none");
-						$(".baion").fadeIn(400);
-						$(".baion").css("display","block");
-					});
-					$("#flip_5").click(function () {
-						$(".baion").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".xbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").css("display","none");
-						$(".tinkoff").fadeIn(400);
-						$(".tinkoff").css("display","block");
-					});
-					$("#flip_6").click(function () {
-						$(".baion").css("display","none");
-						$(".tinkoff").css("display","none");
-						$(".xbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").css("display","none");
-						$(".fonbet").fadeIn(400);
-						$(".fonbet").css("display","block");
-					});
-					$("#flip_7").click(function () {
-						$(".baion").css("display","none");
-						$(".tinkoff").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").css("display","none");
-						$(".xbet").fadeIn(400);
-						$(".xbet").css("display","block");
-					});
-					$("#flip_8").click(function () {
-						$(".baion").css("display","none");
-						$(".tinkoff").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".xbet").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").css("display","none");
-						$(".leon").fadeIn(400);
-						$(".leon").css("display","block");
-					});
-					$("#flip_9").click(function () {
-						$(".baion").css("display","none");
-						$(".tinkoff").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".xbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".auto").css("display","none");
-						$(".pizza").fadeIn(400);
-						$(".pizza").css("display","block");
-					});
-					$("#flip_10").click(function () {
-						$(".baion").css("display","none");
-						$(".tinkoff").css("display","none");
-						$(".fonbet").css("display","none");
-						$(".xbet").css("display","none");
-						$(".leon").css("display","none");
-						$(".pizza").css("display","none");
-						$(".auto").fadeIn(400);
-						$(".auto").css("display","block");
-					});
+					$('.round_buttons_gal2 button').click(function(){
+						id = $(this).index()
+						$('#gallery2_mobile .divv').css('display','none')
+							$('#gallery2_mobile .divv:eq('+id+')').fadeIn(300)
+					//	alert(id)
+
+					})
 				});
 				</script>
 			
@@ -1279,9 +1479,9 @@
 						<form class="footer_two" action="index.php" method="post" name ="mailcontact">
     						<div>
 								<h3>Свяжитесь с нами:</h3>
-								<p>Имя, фамилия:</p><input type="text" name="name_and_last" class="footer_input_">
+								<p>Имя:</p><input type="text" name="name_and_last" class="footer_input_">
 								<p>Электронная почта:</p><input type="text" name="conemail" class="footer_input_">
-								<input class="footer_button" type="submit" name="sentemail" value="subscribe"></input>
+								<input class="footer_button" type="submit" name="sentemail" value="отправить"></input>
 							</div>
 						</form>
 					<div class="footer_three">
@@ -1323,7 +1523,7 @@
 
 						
 						<form action="index.php" method="post" name ="subForm">
-    						<input class="footer_input" type="text" name="email" placeholder="Ваш эмейл"></input><input class="footer_button" type="submit" name="sent" value="subscribe"></input>
+    						<input class="footer_input" type="text" name="email" placeholder="Ваш эмейл"></input><input class="footer_button" type="submit" name="sent" value="подписаться"></input>
 						</form>
 
 						

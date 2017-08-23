@@ -135,8 +135,11 @@ input:focus {
 	position: fixed;
     z-index: 2;
     right: 2vw;
-	margin-top: 15vw;
+	
 	z-index: 10;
+	height: 100%;
+    -webkit-align-items: center;
+
 }
 .round_buttons_2{
     display: flex;
@@ -255,8 +258,9 @@ input:focus {
 	/*background-image:  url("img/background3.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 43vw;
-	
+	height: 55vh;
+	padding-top: 5vh;
+	min-height: 470px;
 	background-image: radial-gradient(16px at 8% 50% ,#022e74 0%, #0d8dd2 60vw, #13baff 90vw); 
 	width: 100%;
 	position: relative;
@@ -279,6 +283,7 @@ input:focus {
 	position: relative;
 	margin:auto;
 	height: 50vh;
+	min-height: 430px;
 }
 #diagram_bg {
 	position: absolute;
@@ -291,6 +296,7 @@ input:focus {
 	width: 100%;
 	justify-content: center;
 	-webkit-justify-content: center;
+	z-index: 1;
 }
 #graphical_diagram .nav div {
 	width: 8px;
@@ -358,7 +364,7 @@ input:focus {
 }
 
 #firstD {
-
+	height: 55vh !important;
 }
 #firstD .container{
 	position: relative;
@@ -369,11 +375,10 @@ input:focus {
 	width: 60%;
 	background-image: url(img/graphic.png);
 	position: relative;
-	margin: auto auto 0 auto;
+	margin: auto auto 5% auto;
 	background-size: 100% 100%;
 	justify-content: flex-start;
 	overflow: visible !important;
-	top: 138px;
 }
 #firstD .container .wrap .numbers {
 	width: 18.1%;
@@ -381,6 +386,7 @@ input:focus {
 	height: 100%;
 	position: relative;
 	top: -45px;
+	left: 10px;
 }
 #firstD .container .wrap .numbers p {
 	margin: 0;
@@ -428,12 +434,18 @@ input:focus {
 #firstD .text_under{
 	position: absolute;
 	width: 100%;
-	top: 100%;
+	margin-bottom: 3%;
+	bottom: 0;
+	left: 0;
+	width: 60%;
+	left: 20%;
 }
 #firstD .text_under p{
-	width: 18.1%;
+	width: 18.6%;
 	text-align: right;
 	color: #9ee7ff;
+	margin-bottom: 0;
+	font-size: 1em;
 }
 #firstD .text_under .abs {
 	position: absolute;
@@ -468,11 +480,11 @@ input:focus {
 }
 .fe {
 	top: 0;
-	left: 19%;
+	right: 78%;
 }
 .ma{
 	top: 50%;
-	left: 2%;
+	right: 95%;
 }
 .fe p{
 	color:#eda6ff !important;
@@ -502,7 +514,6 @@ input:focus {
 }
 #secondD .container ul{
 	position: relative;
-	top: 180px;
 		height: 100%;
 }
 #secondD .container li{
@@ -513,11 +524,13 @@ input:focus {
 #secondD .container li p {
 	color: #83e4ff;
 	margin: 10px 0 0 0;
+	font-size: 1em !important;
 
 }
 #secondD .column {
 	height: 0;
 	width: 5vw;
+	min-width: 100px;
 }
 #secondD .value {
 	margin: 5px;
@@ -534,19 +547,26 @@ input:focus {
 	flex-direction: column;
 	-webkit-flex-direction: column;
 	align-items: center;
-	top: 60%;
-
-	 
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-end;
 }
 #thirdD .wrap p {
 	font-size: 0.9em;
 	height: 20px;
 	line-height: 20px;
+
 }
 #thirdD .left {
 	text-align: right;
 	width: 45%;
 	margin-right: 20px;
+}
+#thirdD .top {
+	width: 100%
+}
+#thirdD .bottom {
+	width: 100%
 }
 #thirdD .top p, #thirdD .bottom p {
 	color:#72c8dd;
@@ -572,6 +592,7 @@ input:focus {
 }
 #thirdD .middle {
 	margin: 20px 0;
+	width: 100%;
 }
 #thirdD .middle .left p {
 	margin: 0;
@@ -605,7 +626,8 @@ input:focus {
 	 
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 43vw;
+	height: 80vh;
+	min-height: 550px;
 
 	background-image: radial-gradient(16px at 92% 50% ,#022e74 0%, #0d8dd2 60vw, #13baff 90vw); 
 	position: relative;
@@ -622,17 +644,18 @@ input:focus {
 #diagram .wrap p {
 	color: #ffffff;
 	margin: 5px 0;
+	font-size: 1em;
 	font-weight: 300;
 }
 #diagram .L {
 	top: 20%;
-	left: 30%;
+	left: 24%;
 	width: 50%;
 }
 
 #diagram .S {
-	top: 38.9%;
-	left: 60%;
+	top: 43.5%;
+	left:59.6%;
 	width: 80%;
 }
 #diagram .contry, #diagram .region {
@@ -649,6 +672,8 @@ input:focus {
 	width: 0;
 	line-height: 45px;
 	margin: 5px 0;
+	position: relative;
+	overflow: visible !important;
 	
 }
 
@@ -755,6 +780,7 @@ input:focus {
 }
 .contact_form table textarea{
 	width: 11.8vw;
+	    resize: none;
 }
 .submit_input{
 	background-color: #8ad4e6;
@@ -804,7 +830,7 @@ input:focus {
     line-height: 1.4vw;
     font-weight: 500;
 }
-.first_gallery ul,li{
+.first_gallery ul, .first_gallery li{
 	color: #18c6f1;
     list-style-type: none;
     font-size: 1vw;
@@ -857,6 +883,35 @@ margin-top: -6vw
     cursor: pointer;
 	margin-right: 1vw;
 }
+#large_img {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.8);
+	z-index: 10;
+	display: none;
+	cursor: pointer;
+
+}
+#large_img .flex {
+	-webkit-justify-content: center;
+	justify-content: center;
+	z-index	webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+#large_img img {
+	width: 85%;
+	height: auto;
+}
+#pic_trig {
+	cursor: pointer;
+}
+
+
 /**/
 #gallery2{
 	background-color:  white; 
@@ -1026,7 +1081,7 @@ input [type="text"]:-ms-input-placeholder      {color:white;}
     color: #8ad4e6;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 35%;
     height: auto;
 	padding: 0.3vw;
 	margin-top: 1vw;

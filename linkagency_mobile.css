@@ -12,7 +12,7 @@
 #float_block_blue2,
 #float_block_2,
 .navigation,
-.footer_one,
+
 .footer_three,
 .follow_us,
 #gallery2,
@@ -20,14 +20,18 @@
 {
 	display: none;
 }
+.footer_links {
+    flex-direction: column;
+}
 .menu {
    display: block;
-   position: absolute;
-   top: 10px;
-   right: 10px;
+   position: fixed;
+   top: 8px;
+   right: -55px;
+   z-index:1;
 }
 .menu img{
-	width: 100%;
+	width: 45%;
 }
 .close {
    display: block;
@@ -35,12 +39,13 @@
     top: 10px;
     right: 5px;
     width: 50px;
+    z-index:2;
 }
 .close img{
 	width: 85%;
 }
 #box{
-   position: absolute;
+   position: fixed;
    width: 100%;
    height: 150vw;
    z-index: 2;
@@ -109,7 +114,7 @@
 	padding: 0;
     margin: 0;
     font-weight: 700;
-    font-size: 2.2vw;
+    font-size: 2.5vw;
     text-transform: uppercase;
     border-bottom: none;
     width: auto;
@@ -139,26 +144,138 @@
 	list-style-position: inside;
 }
 #graphical_diagram{
-	background-image:  url("img/background3.jpg");
+	
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 150vw;
+	height: 60vh;
 	width: 100%;
+    padding-top: 25vh;
 	position: relative;
 }
-#diagram .aud, #graphical_diagram .aud {
+#diagram .aud .info, #graphical_diagram .aud .info {
+    width:210px;
+    white-space: normal;
+}
+ #graphical_diagram .aud {
     position: absolute;
-    right: 35% !important;
-    top: 8% !important;
+    right: calc(50% - 60px) !important;
+    top: 15% !important;
+    color: #ffffff;
+}
+#diagram .aud .num, #graphical_diagram .aud .num, #diagram .aud .top, #graphical_diagram .aud .top {
+    display: none;
+}
+.fe {
+    top: -35%;
+}
+.ma {
+    top: -8%;
+}
+#firstD .container .wrap {
+    width: 75%;
+   margin: auto 1% 5% auto;
+}
+#firstD .wrap .text p {
+    font-size:0.9em;
+    text-align: left;
+}
+#firstD .prec {
+    font-size: 1.6em !important;
+    text-align: left;
+}
+#firstD .container .wrap .numbers {
+    top: -57px;
+}
+#firstD .container .wrap .numbers:nth-child(4){
+    top: -45px;
+}
+#firstD .text_under .abs {
+    left:-50px;
+}
+#firstD .gender {
+    background-image: none;
+}
+#firstD .text_under {
+    width: 75%;
+    left: 27%;
+    margin-bottom: 1%;
+}
+.ma .text{
+    left: 50px
+}
+.fe .text {
+    left: 50px;
+}
+#secondD .column {
+    min-width: 0; 
+}
+#secondD .container li {
+    margin: 0 0.8vw;
+    padding: 0;
+}
+#secondD .column {
+    width: 12vw;
+    align-self: center;
+}
+
+
+#thirdD .top p, #thirdD .bottom p {
+        color: #caeaf2;
+}
+#thirdD .middle .left p {
+    color: #73d3fc;
+}
+#thirdD .middle .left p {
+    line-height: 20px;
+}
+#thirdD .wrap p {
+    font-size: 0.85em;
+}
+#thirdD .top .right p, #thirdD .bottom .right p {
+    font-size: 0.85em !important;
+    color: #caeaf2 !important;
+    line-height: 0.85em;
+}
+.first_gallery li {
+    font-size:3vw;
+}
+#diagram .aud {
+    position: absolute;
+    right: calc(50% - 60px) !important;
+    top: 5% !important;
     color: #ffffff;
 }
 #diagram{
-	background-image:  url("img/background3.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 150vw;
-	position: relative;
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+    position: relative;
+    height: 120vh;
+    min-height: 860px;
 }
+
+
+#diagram .L {
+    left: 48%;
+    height: 40%;
+}
+#diagram .S {
+    left: calc(50% + 56px);
+    top: 64.5%;
+
+
+}
+#diagram .contry {
+    height: 10%;
+}
+#diagram .contry p {
+    line-height: 0;
+    top: calc(50% - 0.5em);
+    right: calc(100% + 10px);
+}
+
+
 #contact_us_mobile{
 	display: block;
 	background-color: white;
@@ -196,7 +313,7 @@
     color: #fff;
     border: none;
     cursor: pointer;
-    width: 38vw;
+    width: auto;
     position: relative;
     top: 0;
 }
@@ -353,6 +470,7 @@
 	text-align: center;
 }
 .footer_links h3 {
+    text-align: center;
     font-size: 30px;
     font-weight: 500;
     padding: 20px;
@@ -361,6 +479,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 20px;
+    text-align: center;
 }
 .footer_input_ {
     padding: 10px;
@@ -381,5 +500,36 @@
     font-weight: 600;
 	box-shadow: 0 0 30px #72c8dd;
 	margin-bottom: 20vw;
+}
+
+.contact_form{
+    top: 5vw;
+    padding: 5vw;
+    box-shadow: none;
+    background-color: white;
+    position: relative;
+}
+.contact_form table{
+    font-size:4vw;
+}
+.new_input input{
+    width:45vw;
+    height:5vw;
+    font-size: 4vw;
+}
+.contact_form table textarea{
+    width: 45vw;
+    height:30vw;
+    font-size: 4vw;
+}
+.submit_input{
+    background-color: #8ad4e6;
+    padding: 2vw 4vw;
+    border-radius: 5vw;
+    font-size: 4vw;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: auto;
 }
 }

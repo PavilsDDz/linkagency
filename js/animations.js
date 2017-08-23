@@ -5,10 +5,11 @@ $(function(){
 	var ww = $(window).width()
 
 	reset[0] = function(){
+	
 		$('#firstD .container .wrap').css({'height':'0',})
 		$('#firstD .numbers p').html('')
-		$('.fe').css({'width':'0%','opacity':0,'left':'19%'})
-		$('.ma').css({'width':'0%','opacity':0,'left':'2%'})
+		$('.fe').css({'width':'0%','opacity':0,'right':'78%'})
+		$('.ma').css({'width':'0%','opacity':0,'right':'95%'})
 
 
 	}
@@ -42,8 +43,10 @@ $(function(){
 						$('#firstD .numbers:eq('+i+') p:nth-child('+2+')').html(Math.round(now/pixelsto*numbersVal[i].m)+'%')
 				}},
 				complete: function(){
-					$('.fe').animate({'width':15+'%','opacity':1,'left':12+'%'})
-					$('.ma').animate({'width':15+'%','opacity':1,'left':-5+'%'})
+					to_fe = ww<900? 110 : 83
+					to_ma = ww<900? 110 : 100
+					$('.fe').animate({'width':15+'%','opacity':1,'right':to_fe+'%'})
+					$('.ma').animate({'width':15+'%','opacity':1,'right':to_ma+'%'})
 				}
 			})
 		
@@ -109,7 +112,14 @@ $(function(){
 
 		}
 		console.log($('#diagram .region'))
-		function animate_second(){
+		
+
+		if (ww>900) {
+				setTimeout(function(){animations[4]()},timer)
+		}
+		//console.log(valR)
+	}
+	animations[4] = function(){
 			for (var i = 0; i < $('#diagram .region').length; i++) {
 				val = parseInt($('#diagram .region:eq('+i+')').attr('val'))
 				valR.push(val)
@@ -127,9 +137,6 @@ $(function(){
 			}
 			console.log(valR)
 		}
-		setTimeout(function(){animate_second()},timer)
-		//console.log(valR)
-	}
 	//animations[3]()
 
 	//animations[0]()
@@ -151,17 +158,20 @@ $(function(){
 				ind_old = ind
 			})
 		text = ['Мужчины, Женщины','Структура переходов на страницы сайта:','Структура переходов на страницы сайта:']
-		$('.aud .num span').html(ind+1+'.')
-		$('.aud .info').html(text[ind])
+		$('#graphical_diagram .aud .num span').html(ind+1+'.')
+		$('#graphical_diagram .aud .info').html(text[ind])
 		//alert(ind)
 	})
 
 	var animated = false
 	var animated2 = false
+	var animated3 = false
 	var offset = $('#graphical_diagram').offset()
 	var gdh = $('#graphical_diagram').height()
 	var dh = $('#diagram').height()
 	var diagO = $('#diagram').offset()
+	var diag2O = $('#diagram2').offset()
+
 	$(document).scroll(function(){
 		sct = $(document).scrollTop()
 		//console.log(sct)
@@ -173,7 +183,12 @@ $(function(){
 		if (sct>diagO.top-dh*0.3&&!animated2) {
 			animated2 = true
 			animations[3]()
-
+		}
+		if (ww<900) {
+			if (sct>diag2O.top-dh*0.3&&!animated3) {
+					animated3 = true
+					animations[4]()
+			}
 		}
 	}) 
 
