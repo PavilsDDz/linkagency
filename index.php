@@ -431,7 +431,7 @@
 
 				<div class="header">
 					<h1>Link Agency</h1>
-					<h2 style="font-style: italic;">Международная рекламная сеть</h2>
+					<h2 style="font-style: italic;">Международное маркетинговое агентство</h2>
 				</div>
 			</div>
 
@@ -569,6 +569,7 @@
 						<p class="info">Мужчины, Женщины</p>
 					</div>
 				</div>
+			<div class="progressbar"></div>
 			</div>
 			<script type="">
 var windowW
@@ -1095,14 +1096,14 @@ var windowW
 								<li>Повышение уровня узнаваемости бренда</li>
 							</ul>
 						</div>
-						<div class="image_block"><img src="img/picture1.png"></div>
+						<div class="image_block" id="pic_trig_1" ><img src="img/picture1.png"></div>
 					</div>
 					
 					<div class="block_2">
 						<div class="information"><h1>Интеграция в<br> спортивные трансляции</h1>
 							<h2>Формат, когда мы вшиваем рекламный<br> контент в онлайн-трансляции<br> спортивных событий.</h2>
 						</div>
-						<div class="image_block"><img src="img/picture2.png"></div>
+						<div class="image_block" id="pic_trig_2" ><img src="img/picture2.png"></div>
 					</div>
 					
 					<div class="block_3">
@@ -1110,10 +1111,38 @@ var windowW
 					</div>
 				</div>
 			</div>
-			<div id="large_img">
-				
-			</div>
+
+			<div id="large_img_1"></div>
+			<div id="large_img_2"></div>
+			<div id="large_img"></div>
+			
 			<script type="">
+					
+				$(function(){
+					$('#pic_trig_1').click(function(){
+
+							$('#large_img_1').css('display','block').html('<div class="block_1"><div class="information"><h1 style="color: #4dc0dc;">Озвучка или<br> проблемы с доступом?</h1><h2>Рекламная озвучка самых популярных<br> зарубежных киносериалов</h2><ul><li style="color: #4dc0dc;">Не блокируется AdBlock</li><li style="color: #4dc0dc;">Вирусный охват</li><li style="color: #4dc0dc;">Повышение уровня узнаваемости бренда</li></ul></div><div class="image_block" id="pic_trig_1" ><img src="img/picture1.png"></div></div>')
+
+					})
+					$('#large_img_1').click(function(){
+						$(this).css('display', 'none')
+					})
+				})
+			</script>
+			<script type="">
+					
+				$(function(){
+					$('#pic_trig_2').click(function(){
+
+							$('#large_img_2').css('display','block').div('.block_2')
+
+					})
+					$('#large_img_2').click(function(){
+						$(this).css('display', 'none')
+					})
+				})
+			</script>
+						<script type="">
 					
 				$(function(){
 					$('#pic_trig').click(function(){
@@ -1507,7 +1536,7 @@ var windowW
 						</div>
 					</div>
 					
-					<div class="follow_us">
+					<div style="display:none;" class="follow_us">
 						<!-- <div class="flex2">
 							<div class="followus"><h3>Follow us:</h3></div>
 

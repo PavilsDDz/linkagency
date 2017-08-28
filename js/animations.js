@@ -3,9 +3,10 @@ $(function(){
 	var reset = []
 	var timer = 1300
 	var ww = $(window).width()
+	var animateTime
 
 	reset[0] = function(){
-	
+		//console.log('reset call 0')
 		$('#firstD .container .wrap').css({'height':'0',})
 		$('#firstD .numbers p').html('')
 		$('.fe').css({'width':'0%','opacity':0,'right':'78%'})
@@ -14,15 +15,24 @@ $(function(){
 
 	}
 	reset[1] = function(){
+		//console.log('reset call 1')
+
 		$('#secondD .column').css({'height':'0'})
 		$('#secondD .value').html('')
 	}
 	reset[2] = function(){
+	//	console.log('reset call 2')
+
 		$('#thirdD .middle .right p:eq('+0+')').css('width','0vw').html('0%')
 		$('#thirdD .middle .right p:eq('+1+')').css('width','0vw').html('0%')
 	}
 
+	var first = true
 	animations[0] = function(){
+		if (first) {
+							$('.progressbar').animate({'width':'100%'},timeOut+timer)
+			
+		}
 		heightTo = 70;
 		numbersLen = $('#firstD .numbers').length
 		numbersVal = [];
@@ -31,7 +41,7 @@ $(function(){
 			numbersVal[i].f =  parseInt($('#firstD .numbers:eq('+i+')').attr('female'))
 			numbersVal[i].m =  parseInt($('#firstD .numbers:eq('+i+')').attr('male'))
 		}
-		console.log(numbersVal)
+		//console.log(numbersVal)
 		pixelsto = $('#firstD .container').height()/100*heightTo
 		$('#firstD .container .wrap').animate(
 			{'height':pixelsto}
@@ -46,7 +56,14 @@ $(function(){
 					to_fe = ww<900? 110 : 83
 					to_ma = ww<900? 110 : 100
 					$('.fe').animate({'width':15+'%','opacity':1,'right':to_fe+'%'})
-					$('.ma').animate({'width':15+'%','opacity':1,'right':to_ma+'%'})
+					$('.ma').animate({'width':15+'%','opacity':1,'right':to_ma+'%'},function(){
+						if (first) {
+							//console.log('first')
+							first = false
+
+							animateTime = setTimeout(function(){ moveDiag(now+dir) },timeOut)
+						}
+					})
 				}
 			})
 		
@@ -55,7 +72,7 @@ $(function(){
 	animations[1] = function(){
 		containerHeight =  $('#secondD .container').height()
 		len = $('#secondD li').length
-		console.log(len)
+		//console.log(len)
 		for (var i = 0; i < len; i++) {
 			that = $('#secondD .column:eq('+i+')')
 			val = that.attr('val')
@@ -66,9 +83,11 @@ $(function(){
 			
 			$('#secondD .column:eq('+i+')').animate({'height': height},{duration:timer, step:function(now,fx){
 				$(this).siblings('.value').html(Math.round((now/containerHeight)*1000)/10 + '%')
-					}
+				}, complete:function(){
+					
+				}
 			})
-			console.log($('#secondD .column:eq('+i+')'))
+			//console.log($('#secondD .column:eq('+i+')'))
 
 		}
 	}
@@ -87,7 +106,9 @@ $(function(){
 			step:function(now, fx){
 				$(this).html(Math.round(val[1]*now/8)/10+'%')
 				//console.log($(this),val[0],now,(ww*0.02)/10)
-			},
+			},complete:function(){
+				
+			}
 		})
 
 	}
@@ -142,26 +163,63 @@ $(function(){
 	//animations[0]()
 
 	ind_old = 0;
-	$('#graphical_diagram .nav div').click(function(){
+	var dir = 1;
+	var now = 0;
+	var timeOut = 3000
+	
+
+	var moveDiag = function(ind){
+		clearTimeout(animateTime);
+
 		$('#graphical_diagram .nav div').removeClass('current')
-		$(this).addClass('current')
-		ind = $(this).index()
+		$('#graphical_diagram .nav div:eq('+ind+')').addClass('current')
+
+		$('.progressbar').stop().css('width','0%')
+		$('.progressbar').animate({'width':'100%'},timeOut+timer)
+
 		len = $('#graphical_diagram .diagram').length
-		console.log(len)
+		console.log('moveDiag called')
 		for (var i = len - 1; i >= 0; i--) {
 			$('#graphical_diagram .diagram:eq('+i+')').animate({'left':(i - ind)*100+'%'},600)
-			console.log($('#graphical_diagram .diagram:eq('+i+')'))
+		//	console.log($('#graphical_diagram .diagram:eq('+i+')'))
 		}
 			$('#diagram_bg').animate({'left': - ind/4*100+'%'},600,function(){
 				animations[ind]()
 				reset[ind_old]()
 				ind_old = ind
+				now = ind
+
+				animateTime = setTimeout(function(){moveDiag(now+dir)},timeOut+timer)
+
+				
 			})
 		text = ['Мужчины, Женщины','Структура переходов на страницы сайта:','Структура переходов на страницы сайта:']
 		$('#graphical_diagram .aud .num span').html(ind+1+'.')
 		$('#graphical_diagram .aud .info').html(text[ind])
+
+				if (ind==len-1) {dir=-1}
+				if (ind==0) {dir=1}
+					console.log(now, dir)
+		
+	}
+	
+
+
+
+
+	$('#graphical_diagram .nav div').click(function(){
+		clearTimeout(animateTime);
+
+		$('#graphical_diagram .nav div').removeClass('current')
+		//reset[ind_old]()
+		$(this).addClass('current')
+		ind = $(this).index()
+		moveDiag(ind)
 		//alert(ind)
 	})
+
+
+
 
 	var animated = false
 	var animated2 = false

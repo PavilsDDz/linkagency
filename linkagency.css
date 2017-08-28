@@ -160,7 +160,8 @@ input:focus {
 	background-image:  url("img/background1.jpg"); 
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 43vw;
+	height: 20vw;
+	background-position: 20%;
 }
 #header h1{
 	color: white;
@@ -196,7 +197,7 @@ input:focus {
 }
 .header{
     position: relative;
-    top: 18vw;
+    top: 5vw;
     left: 15vw;
 }
 /**/
@@ -207,10 +208,10 @@ input:focus {
 	height: 43vw;
 }
 .text{
-	padding: 5vw 1vw 4vw 5vw;
+	padding: 4.5vw 1vw 4vw 5vw;
 }
 .white_block{
-	width: 27vw;
+	width: 40vw;
     height: 32vw;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     background-color: white;
@@ -222,7 +223,7 @@ input:focus {
 .white_block h3{
 	padding: 0;
     margin: 0;
-    font-size: 1.8vw;
+    font-size: 2vw;
     font-weight: 700;
 	padding-top: 1.5vw;
     padding-bottom: 1.5vw;
@@ -231,7 +232,7 @@ input:focus {
 	padding: 0;
     margin: 0;
     font-weight: 700;
-    font-size: 0.6vw;
+    font-size: 1vw;
     text-transform: uppercase;
 	border-bottom:1px solid #51b3cb;
 	width: 8vw;
@@ -241,13 +242,13 @@ input:focus {
 	padding: 0;
 	margin: 0;
 	padding-bottom: 1.5vw;
-	font-size: 0.8vw;
+	font-size: 1.2vw;
 }
 .white_block li{
 	margin: 0;
     color: #51b3cb;
     padding: 0.6vw;
-    font-size: 0.8vw;
+    font-size: 1.2vw;
     padding-left: 0;
     font-style: italic;
     margin-left: 1vw;
@@ -284,6 +285,14 @@ input:focus {
 	margin:auto;
 	height: 50vh;
 	min-height: 430px;
+}
+.progressbar {
+	width: 0%;
+	height: 5px;
+	position: absolute;
+	left:0;
+	bottom: 0;
+	background-color: #0091ff; 
 }
 #diagram_bg {
 	position: absolute;
@@ -911,6 +920,61 @@ margin-top: -6vw
 	cursor: pointer;
 }
 
+#large_img_1 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 10;
+	display: none;
+	cursor: pointer;
+
+}
+#large_img_1 .flex {
+	-webkit-justify-content: center;
+	justify-content: center;
+	z-index	webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+#large_img_1 img {
+	width: 85%;
+	height: auto;
+}
+#pic_trig_1 {
+	cursor: pointer;
+}
+
+#large_img_2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 10;
+	display: none;
+	cursor: pointer;
+
+}
+#large_img_2 .flex {
+	-webkit-justify-content: center;
+	justify-content: center;
+	z-index	webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+#large_img_2 img {
+	width: 85%;
+	height: auto;
+}
+#pic_trig_2 {
+	cursor: pointer;
+}
 
 /**/
 #gallery2{
